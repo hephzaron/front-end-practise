@@ -1,3 +1,5 @@
+/*General custom styles applied to all elements in the body*/
+
 body {
     font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
     background-image: url(./images/background.jpg);
@@ -5,7 +7,11 @@ body {
     font-size: 15px;
 }
 
+
+/*custom styling applicable to navigation bar and login/signup forms*/
+
 .nav {
+    height: 50px;
     color: rgb(127, 124, 124);
     font-size: 16px;
     padding-right: 30px;
@@ -24,7 +30,6 @@ h2 {
 
 .checkbox {
     color: blue;
-    margin-left: 0px
 }
 
 h4 {
@@ -56,4 +61,11 @@ h4 {
     margin-top: 2px;
     margin-bottom: 2px;
     font-size: 16px;
+}
+
+
+/*custom styles for user home-page*/
+
+.container {
+    background-image: url(./images/home-page.jpg);
 }
