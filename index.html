@@ -25,17 +25,38 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">What we offer<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Audio books</a></li>
-                <li><a href="#">Online books</a></li>
+                <li><a data-toggle="tab" href="#audioBooks">Audio books</a></li>
+                <li><a data-toggle="tab" href="#onlineBooks">Online books</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Buy a book</li>
-                <li><a href="#">Bookshops</a></li>
+                <li><a data-toggle="tab" href="#bookshops">Bookshops</a></li>
             </ul>
         </li>
         <li class="navbar-right">
-            <a>Welcome to HiLib</a>
+            <h4>Welcome to HiLib</h4>
         </li>
     </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+        </div>
+        <div id="signin" class="tab-pane fade ">
+            <h3>SIGN IN</h3>
+        </div>
+        <div id="register" class="tab-pane fade">
+            <h3>REGISTER</h3>
+        </div>
+        <div id="audioBooks" class="tab-pane fade">
+            <h3>AUDIO BOOKS</h3>
+        </div>
+        <div id="onlineBooks" class="tab-pane fade">
+            <h3>ONLINE BOOKS</h3>
+        </div>
+        <div id="bookshops" class="tab-pane fade">
+            <h3>BOOKSHOPS</h3>
+        </div>
+    </div>
 
 
 
