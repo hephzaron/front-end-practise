@@ -16,8 +16,44 @@ body {
     background: repeating-linear-gradient(-45deg, rgb(247, 247, 247), rgb(247, 247, 247) 15px, rgb(225, 234, 235) 15px, rgb(225, 234, 235) 30px, rgb(247, 247, 247) 30px);
 }
 
+h2 {
+    text-align: center;
+    font-weight: bold;
+    color: blue;
+}
+
+.checkbox {
+    color: blue;
+    margin-left: 0px
+}
+
 h4 {
     font-size: 20px;
     font-weight: bold;
     color: blue
+}
+
+.wrapper {
+    background-color: gray;
+    max-width: 500px;
+    min-width: 200px;
+    margin-left: 35%;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 60px;
+    height: 100%;
+    border-radius: 5px
+}
+
+.form-user {
+    width: 90%;
+}
+
+.sr-only,
+.form-control {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 16px;
 }
