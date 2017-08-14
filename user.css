@@ -1,0 +1,16 @@
+body {
+    font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    background-image: url(./images/background.jpg);
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.nav {
+    color: rgb(127, 124, 124);
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid rgb(219, 229, 232);
+    border-radius: 0 0 5px 5px;
+    background: rgb(225, 234, 235);
+    background: repeating-linear-gradient(-45deg, rgb(247, 247, 247), rgb(247, 247, 247) 15px, rgb(225, 234, 235) 15px, rgb(225, 234, 235) 30px, rgb(247, 247, 247) 30px);
+}
