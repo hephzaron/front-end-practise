@@ -5,16 +5,16 @@ body {
     background-image: url(./images/background.jpg);
     font-weight: 400;
     font-size: 15px;
+    text-align: center
 }
 
 
 /*custom styling applicable to navigation bar and login/signup forms*/
 
-.nav {
-    height: 50px;
+.navbar {
     color: rgb(127, 124, 124);
     font-size: 16px;
-    padding-right: 30px;
+    padding-bottom: 0px;
     text-align: center;
     border-top: 1px solid rgb(219, 229, 232);
     border-radius: 0 0 5px 5px;
@@ -25,38 +25,37 @@ body {
 h2 {
     text-align: center;
     font-weight: bold;
-    color: blue;
-}
-
-.checkbox {
-    color: blue;
+    color: #342D7E
 }
 
 h4 {
     font-size: 20px;
     font-weight: bold;
-    color: blue
+    color: #342D7E
 }
 
-.wrapper {
+.form-user {
+    position: relative;
     background-color: gray;
     max-width: 500px;
     min-width: 200px;
-    margin-left: 35%;
     text-align: center;
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
     padding-top: 60px;
     height: 100%;
-    border-radius: 5px
+    border-radius: 5px;
+    margin: 0 auto;
+    font-size: 16px
 }
 
-.form-user {
-    width: 90%;
+.form-user .checkbox {
+    text-align: left;
+    color: white
 }
 
-.sr-only,
+.form-user .sr-only,
 .form-control {
     margin-top: 2px;
     margin-bottom: 2px;
@@ -66,6 +65,10 @@ h4 {
 
 /*custom styles for user home-page*/
 
-.container {
-    background-image: url(./images/home-page.jpg);
+.row {
+    background-color: #6F4E37
+}
+
+.row p {
+    color: white
 }
