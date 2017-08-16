@@ -66,7 +66,8 @@ a {
 
 .jumbotron {
     padding-top: 70px;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    margin-bottom: 0px
 }
 
 .jumbotron .badge {
@@ -89,4 +90,28 @@ a {
     color: blue;
     padding-left: 3px;
     padding-top: 0px
+}
+
+.row .row-title,
+.row .row-author,
+.row .row-description {
+    border-bottom: 3px solid burlywood;
+    margin-left: 0px;
+}
+
+.col-md-1,
+.col-md-7 {
+    padding: 40px;
+    height: 200px;
+    background-color: blue
+}
+
+.col-md-4 {
+    margin-top: 0px;
+    margin-right: 0px;
+    border-right: 3px solid burlywood;
+    border-left: 3px solid burlywood;
+    border-bottom: 3px solid burlywood;
+    height: 500px;
+    background-color: paleturquoise
 }
