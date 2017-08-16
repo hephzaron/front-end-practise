@@ -113,5 +113,24 @@ a {
     border-left: 3px solid burlywood;
     border-bottom: 3px solid burlywood;
     height: 500px;
-    background-color: paleturquoise
+    background-color: paleturquoise;
+    max-width: 400px;
+    min-width: 200px;
+    overflow-y: scroll
+}
+
+.col-md-4 li {
+    color: blue
+}
+
+.list-group-item {
+    padding-right: 25px
+}
+
+hr {
+    margin-top: 50px;
+}
+
+footer {
+    position: 100%
 }
