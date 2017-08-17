@@ -120,11 +120,19 @@ a {
 }
 
 .col-md-4 li {
-    color: blue
+    color: #5C5858
 }
 
-.list-group-item {
-    padding-right: 25px
+.panel-heading .accordion-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 20px
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    content: "\e080";
 }
 
 hr {
