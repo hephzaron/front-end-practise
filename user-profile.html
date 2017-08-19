@@ -12,11 +12,22 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.list-group-item').on('click', function() {
+                $('.glyphicon', this)
+                    .toggleClass('glyphicon-chevron-right')
+                    .toggleClass('glyphicon-chevron-down');
+            });
+
+        });
+    </script>
 
 
     <!-- Custom style for user profile template-->
     <link href="user-profile.css" rel="stylesheet">
-    <script src="/js/icon-toggle.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 
 
 </head>
@@ -95,43 +106,115 @@
 
         <div class="col-md-4 ">
             <h2>Book Catalog</h2>
-            <div>
-                <div>
-                    <h4 class="active list-title">
-                        <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne"></a>Category #1
-                    </h4>
-                    <div id="collapseOne" class="collapse ">
-                        <ul>
-                            <li>The Principle of Electronics</li>
-                            <li>Fundamental of Physics</li>
-                            <li>Electrical Circuits</li>
-                        </ul>
+            <div class="just-padding">
+
+                <div class="list-group list-group-root well">
+
+                    <a href="#item-1" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Item 1
+                    </a>
+                    <div class="list-group collapse" id="item-1">
+
+                        <a href="#item-1-1" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 1.1
+                        </a>
+                        <div class="list-group collapse" id="item-1-1">
+                            <a href="#" class="list-group-item">Item 1.1.1</a>
+                            <a href="#" class="list-group-item">Item 1.1.2</a>
+                            <a href="#" class="list-group-item">Item 1.1.3</a>
+                        </div>
+
+                        <a href="#item-1-2" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 1.2
+                        </a>
+                        <div class="list-group collapse" id="item-1-2">
+                            <a href="#" class="list-group-item">Item 1.2.1</a>
+                            <a href="#" class="list-group-item">Item 1.2.2</a>
+                            <a href="#" class="list-group-item">Item 1.2.3</a>
+                        </div>
+
+                        <a href="#item-1-3" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 1.3
+                        </a>
+                        <div class="list-group collapse" id="item-1-3">
+                            <a href="#" class="list-group-item">Item 1.3.1</a>
+                            <a href="#" class="list-group-item">Item 1.3.2</a>
+                            <a href="#" class="list-group-item">Item 1.3.3</a>
+                        </div>
+
                     </div>
-                </div>
-                <div>
-                    <h4 class="active list-title">
-                        <a class="accordion-toggle" data-toggle="collapse" href="#collapseTwo"></a>Category #2
-                    </h4>
-                    <div id="collapseTwo" class="collapse">
-                        <ul>
-                            <li>The Principle of Electronics</li>
-                            <li>Fundamental of Physics</li>
-                            <li>Electrical Circuits</li>
-                        </ul>
+
+                    <a href="#item-2" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Item 2
+                    </a>
+                    <div class="list-group collapse" id="item-2">
+
+                        <a href="#item-2-1" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 2.1
+                        </a>
+                        <div class="list-group collapse" id="item-2-1">
+                            <a href="#" class="list-group-item">Item 2.1.1</a>
+                            <a href="#" class="list-group-item">Item 2.1.2</a>
+                            <a href="#" class="list-group-item">Item 2.1.3</a>
+                        </div>
+
+                        <a href="#item-2-2" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 2.2
+                        </a>
+                        <div class="list-group collapse" id="item-2-2">
+                            <a href="#" class="list-group-item">Item 2.2.1</a>
+                            <a href="#" class="list-group-item">Item 2.2.2</a>
+                            <a href="#" class="list-group-item">Item 2.2.3</a>
+                        </div>
+
+                        <a href="#item-2-3" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 2.3
+                        </a>
+                        <div class="list-group collapse" id="item-2-3">
+                            <a href="#" class="list-group-item">Item 2.3.1</a>
+                            <a href="#" class="list-group-item">Item 2.3.2</a>
+                            <a href="#" class="list-group-item">Item 2.3.3</a>
+                        </div>
+
                     </div>
-                </div>
-                <div>
-                    <h4 class="active list-title">
-                        <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree"></a>Category #3
-                    </h4>
-                    <div id="collapseThree" class="collapse">
-                        <ul>
-                            <li>The Principle of Electronics</li>
-                            <li>Fundamental of Physics</li>
-                            <li>Electrical Circuits</li>
-                        </ul>
+
+
+                    <a href="#item-3" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i>Item 3
+                    </a>
+                    <div class="list-group collapse" id="item-3">
+
+                        <a href="#item-3-1" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 3.1
+                        </a>
+                        <div class="list-group collapse" id="item-3-1">
+                            <a href="#" class="list-group-item">Item 3.1.1</a>
+                            <a href="#" class="list-group-item">Item 3.1.2</a>
+                            <a href="#" class="list-group-item">Item 3.1.3</a>
+                        </div>
+
+                        <a href="#item-3-2" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 3.2
+                        </a>
+                        <div class="list-group collapse" id="item-3-2">
+                            <a href="#" class="list-group-item">Item 3.2.1</a>
+                            <a href="#" class="list-group-item">Item 3.2.2</a>
+                            <a href="#" class="list-group-item">Item 3.2.3</a>
+                        </div>
+
+                        <a href="#item-3-3" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>Item 3.3
+                        </a>
+                        <div class="list-group collapse" id="item-3-3">
+                            <a href="#" class="list-group-item">Item 3.3.1</a>
+                            <a href="#" class="list-group-item">Item 3.3.2</a>
+                            <a href="#" class="list-group-item">Item 3.3.3</a>
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
             <p><a class="btn btn-default" href="#" role="button">Borrow Books &raquo;</a></p>
 

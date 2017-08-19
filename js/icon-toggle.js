@@ -1,17 +1,9 @@
-$(document).ready(function() {
-    $('.collapse')
-        .on('shown.bs.collapse', function() {
-            $(this)
-                .parent().parent()
-                .find(".glyphicon-chevron-right")
-                .removeClass("glyphicon-chevron-right")
-                .addClass("glyphicon-chevron-down");
-        })
-        .on('hidden.bs.collapse', function() {
-            $(this)
-                .parent().parent()
-                .find(".glyphicon-chevron-down")
-                .removeClass("glyphicon-chevron-down")
-                .addClass("glyphicon-chevron-right");
-        });
-})
+$(function() {
+
+    $('.list-group-item').on('click', function() {
+        $('.glyphicon', this)
+            .toggleClass('glyphicon-chevron-right')
+            .toggleClass('glyphicon-chevron-down');
+    });
+
+});
