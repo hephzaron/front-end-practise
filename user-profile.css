@@ -163,20 +163,6 @@ a {
     margin-right: 5px;
 }
 
-
-/**
-.list-title .accordion-toggle.collapsed:after {
-    content: "\e080";
-}
-
-.list-title .accordion-toggle:after {
-    font-family: 'Glyphicons Halflings';
-    content: "\e114";
-    float: left;
-    color: grey;
-    margin-right: 20px
-}**/
-
 hr {
     margin-top: 50px;
 }
