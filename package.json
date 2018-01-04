@@ -9,10 +9,15 @@
   "author": "Daramola Tobi",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^8.1.2",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "validator": "^9.2.0"
   }
 }
