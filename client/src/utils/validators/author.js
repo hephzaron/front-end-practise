@@ -9,7 +9,7 @@ import { isEmpty } from 'lodash';
  */
 
 export default (inputs) => {
-    let errors = {};
+    const errors = {};
     const {
         firstName,
         lastName,

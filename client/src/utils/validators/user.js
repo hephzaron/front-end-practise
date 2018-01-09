@@ -4,7 +4,8 @@ import { isEmpty } from 'lodash';
 /**
  * @class defaultClass
  * @description Validate inputs for user credentials
- * @param {object} inputs and type
+ * @param {object} inputs 
+ * @param{string} type
  * @return {object} isValid and errors
  */
 
