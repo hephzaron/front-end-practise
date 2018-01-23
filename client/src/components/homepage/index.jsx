@@ -1,7 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Dropdown from '../forms/Dropdown';
+import PropTypes from 'prop-types';
 
+let dropDownItems = [
+     { name: 'Audio books', link: '#audio'},
+     { name: 'Online books', link: '#online'},
+     { name: 'Bookshops', link: '#shop'},
+     seperator:{
+         header: 'Buy a book'
+        }
+    ]
 const HomePage = (props) => {
   return(
     <div className="container">
@@ -25,7 +34,7 @@ const HomePage = (props) => {
                     <li className="dropdown">
                         <a data-toggle="dropdown" className="dropdown-toggle" href="#">What we offer<b className="caret"></b></a>
                         <Dropdown
-                          items={props.dropDownItems}/>
+                          items={dropDownItems}/>
                     </li>
                 </ul>
             </div>
@@ -34,6 +43,9 @@ const HomePage = (props) => {
     {props.children}
     </div>
   )
+}
+HomePage.propTypes = {
+    children: PropTypes.node
 }
 
 export default HomePage

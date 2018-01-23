@@ -19,7 +19,7 @@ const propTypes = {
 const Dropdown = (props) => {
 
   const listItems = items.map((item,index)=>{
-    if(!item.seperator){
+    if(!item["seperator"]){
     <li key={index}>
       <Link 
         data-toggle = {props.dataToggle} 
@@ -29,15 +29,16 @@ const Dropdown = (props) => {
     </li>
     }
 
-    if(item.seperator){
-      <li role = "seperator" className = "divider"></li>
-      <li className = "dropdown-header" >{props.item.seperator.header}</li>
+    if(item["seperator"]){
+      <div>
+        <li role = "seperator" className = "divider"></li>
+        <li className = "dropdown-header" >{props.item.seperator.header}</li>
+      </div>
     }
   });
 
   return (
-    <ul className = {
-      classnames({props.dropDownClass})}>
+    <ul className = {props.dropDownClass}>
       {listItems}
     </ul>
   )

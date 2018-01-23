@@ -22,11 +22,12 @@ const propTypes = {
 };
 
 const ChangePassword = (props) => {
+  
+<div>
   <div>
     <h2>HiLib</h2>
     <hr/>
   </div>
-
   <form onSubmit = {props.onSubmit}>
     <h2 className = "form-user-heading">Please sign in</h2>
       <FlashMessageList />
@@ -61,6 +62,7 @@ const ChangePassword = (props) => {
         disabled = {props.isLoading}/>
 
     </form>
+  </div>
 };
 
 ChangePassword.propTypes = propTypes;

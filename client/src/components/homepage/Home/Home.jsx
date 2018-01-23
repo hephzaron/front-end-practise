@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Jumbotron from './Jumbotron';
-import HomeRow fron './HomeRow';
+import HomeRow from './HomeRow';
 
 /**
  * @description This renders the homepage and its other components
@@ -10,7 +10,7 @@ import HomeRow fron './HomeRow';
  */
 
 const propTypes = {
-  isLoading: PropTypes.func.isRequired
+  isLoading: PropTypes.func.isRequired,
   messageContent: PropTypes.string
 }
 

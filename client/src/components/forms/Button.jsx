@@ -17,7 +17,7 @@ const Button = (props) =>{
                 type = {props.type} 
                 disabled = {props.disabled}
                 onClick = {props.onClick}>
-                {props.icon? `${props.name} ${&raquo;}`:{props.name}}
+                {props.icon ? `${props.name} &${raquo};`: props.name}
             </button>
     </div>
 }

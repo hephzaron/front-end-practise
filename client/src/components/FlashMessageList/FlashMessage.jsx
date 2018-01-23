@@ -10,23 +10,23 @@ import classnames from 'classnames';
  */
 
 const FlashMesssage = (props)=>{
-    const type = props.type;
-    const text = props.text;
-    return (
-        <div className = {classnames('alert',{
-            'alert-info': type === 'info',
-            'alert-danger': type === 'error',
-            'alert-success': type === 'success'
-        })}>
-            {
-							Array.isArray(text) && text.length>1 &&
-								<ul>
-									{text.map((value,index) => 
-									<li key={index}>{value}</li>)}
-								</ul>                     
-						}
-						{text.length === 1 && <span>{text[0]}</span>}
-        </div>
+  const type = props.type;
+  const text = props.text;
+  return (
+    <div className = {classnames('alert',{
+        'alert-info': type === 'info',
+        'alert-danger': type === 'error',
+        'alert-success': type === 'success'
+    })}>
+      {
+				Array.isArray(text) && text.length>1 &&
+					<ul>
+						{text.map((value,index) => 
+						<li key={index}>{value}</li>)}
+					</ul>                     
+			}
+			{text.length === 1 && <span>{text[0]}</span>}
+    </div>
     );
 };
 

@@ -29,7 +29,7 @@ const Column = (props) => {
       onClick = {props.onClick}
       name = {props.name}
       disable = {props.isLoading}
-      icon = true/>
+      icon = {true}/>
   </div>
 }
 

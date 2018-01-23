@@ -98,7 +98,7 @@ const RegisterForm = (props) => {
           
         <Button
           name = "Register"
-          icon = false
+          icon = {false}
           disabled = {props.isLoading}
           className = "btn-success"/>
         

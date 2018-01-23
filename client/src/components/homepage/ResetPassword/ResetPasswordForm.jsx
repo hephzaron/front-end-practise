@@ -13,6 +13,10 @@ import {Link} from 'react-router';
  * @return {void}
  */
 
+const propTypes = {
+  
+}
+
 const ResetPassword = (props) => {
 
   <div id = "reset" className = "tab-pane fade">
@@ -20,10 +24,10 @@ const ResetPassword = (props) => {
       <h2 className="form-user-heading">`${'Password reset'}`</h2>
         <FlashMessageList />
         <SingleInput
-          identifier = "inputEmail",
-          type = "email",
-          placeholder = "Email address",
-          label = "Email address",
+          identifier = "inputEmail"
+          type = "email"
+          placeholder = "Email address"
+          label = "Email address"
           onChange = {props.onChange}/>
           {
             props.validationError.email && 

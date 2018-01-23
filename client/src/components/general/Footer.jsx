@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  */
 
 const propTypes = {
-  mmYY = PropTypes.string.isRequired
+  mmYY : PropTypes.string.isRequired
 }
 
 const Footer = (props) => {
