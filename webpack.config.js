@@ -86,8 +86,14 @@ module.exports = (env) => {
                         path.join(__dirname, 'client'),
                         path.join(__dirname, './template')
                     ],
-                    loader: 'babel-loader',
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                            presets: ['react'],
+                        },
+                    },
                 },
             ],
         },
