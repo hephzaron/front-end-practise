@@ -87,10 +87,7 @@ module.exports = (env) => {
                         path.join(__dirname, './template')
                     ],
                     loader: 'babel-loader',
-                    exclude: /node_modules/,
-                    query: {
-                        cacheDirectory: true,
-                    },
+                    exclude: /node_modules/
                 },
             ],
         },
