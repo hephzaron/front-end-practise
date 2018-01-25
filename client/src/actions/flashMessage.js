@@ -21,4 +21,4 @@ const deleteFlashMessage = () => {
     });
 };
 
-export { addFlashMessage, deleteFlashMessage };
+export default { addFlashMessage, deleteFlashMessage };

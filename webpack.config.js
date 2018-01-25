@@ -90,8 +90,7 @@ module.exports = (env) => {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            cacheDirectory: true,
-                            presets: ['react'],
+                            cacheDirectory: true
                         },
                     },
                 },
