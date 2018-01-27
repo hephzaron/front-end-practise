@@ -28,4 +28,4 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
 }
-export default Textarea
+export default Checkbox;

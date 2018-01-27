@@ -7,7 +7,7 @@ let dropDownItems = [
      { name: 'Audio books', link: '#audio'},
      { name: 'Online books', link: '#online'},
      { name: 'Bookshops', link: '#shop'},
-     seperator:{
+     'seperator':{
          header: 'Buy a book'
         }
     ]

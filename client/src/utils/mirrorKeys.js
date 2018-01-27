@@ -5,7 +5,7 @@
  */
 
 const mirrorKeys = (arr) => {
-    arr.reduce((obj, str) => {
+    return arr.reduce((obj, str) => {
         obj[str] = str;
         return obj
     }, {});

@@ -67,4 +67,4 @@ const ChangePassword = (props) => {
 
 ChangePassword.propTypes = propTypes;
 
-export default SigninForm;
+export default ChangePassword;
