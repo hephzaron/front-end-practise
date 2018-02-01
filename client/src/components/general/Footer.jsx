@@ -12,12 +12,14 @@ const propTypes = {
 }
 
 const Footer = (props) => {
+  return(
   <div>
     <hr/>
     <footer>
-      <p>{`&copy; ${props.mmYY} HiLib, Inc.`}</p>
+      <p>{`© ${props.mmYY} HiLib, Inc.`}</p>
     </footer>
   </div>
+  )
 };
 
 Footer.defaultProps = {

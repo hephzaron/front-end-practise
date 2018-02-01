@@ -9,6 +9,7 @@ import classnames from 'classnames';
  */
 
 const Button = (props) =>{
+    return(
         <div>
             <button
                 className = {classnames(
@@ -17,9 +18,10 @@ const Button = (props) =>{
                 type = {props.type} 
                 disabled = {props.disabled}
                 onClick = {props.onClick}>
-                {props.icon ? `${props.name} &${raquo};`: props.name}
+                {props.icon ? `${props.name} ${'>>'}`: props.name}
             </button>
     </div>
+)
 }
 
 Button.propTypes = {

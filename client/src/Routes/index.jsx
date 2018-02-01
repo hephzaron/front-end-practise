@@ -1,19 +1,27 @@
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
-import Home from '../../src/components/homepage/Home/Home';
-import Register from '../../src/components/homepage/Register/RegisterForm';
-import Signin from '../../src/components/homepage/Signin/SigninForm';
-import ChangePassword from '../../src/components/homepage/ChangePassword/ChangePasswordForm';
-import ResetPassword from '../../src/components/homepage/ResetPassword/ResetPasswordForm';
-import App from '../../src/components/homepage';
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Switch} from 'react-router-dom';
+//import createHistory from 'history/createBrowserHistory'
+import Home from 'HomePage/Home';
+import Register from 'HomePage/Register';
+import Signin from 'HomePage/Signin';
+import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
+import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
+import App from 'HomePage';
+import LandingPage from 'HomePage/Landing/Main'
 
-const Routes = () => (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home}></IndexRoute>
-    <Route path ="/signin" component={Signin}></Route>
-    <Route path = "/register" component={Register}></Route>
-    <Route path = "/reset-password" component={ResetPassword}></Route>
-  </Route>
-);
+//const history = createHistory()
+
+const Routes = () =>  (
+    <div className="container">
+        <Route exact path="/" component={LandingPage}/>
+        <Route path="/home" component={Home} />
+        <Route path ="/signin" component={Signin}/>
+        <Route path = "/register" component={Register}/>
+        <Route path = "/reset-password" component={ResetPassword}/>
+    </div>
+    )
 
 export default Routes;

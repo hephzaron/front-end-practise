@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../forms/Button';
+import Button from 'Forms/Button';
 
 /**
  * @description Abstracts the column component in the jumbotron  on home page
@@ -18,6 +18,7 @@ const propTypes = {
 };
 
 const Column = (props) => {
+  return(
   <div className = {props.colClass}>
   {
     (props.colClass === 'container')?
@@ -31,6 +32,7 @@ const Column = (props) => {
       disable = {props.isLoading}
       icon = {true}/>
   </div>
+)
 }
 
 Column.propTypes = propTypes;

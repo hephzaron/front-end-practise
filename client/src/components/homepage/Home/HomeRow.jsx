@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Column from './Column';
-import Footer from '../../general/Footer'
+import Footer from 'General/Footer'
 
 /**
  * @description Abstracts row beneath jumbotron on homepage
@@ -21,6 +21,7 @@ const propTypes = {
 }
 
 const HomeRow = (props) => {
+  return(
   <div className="container">
     <div className="row">
       <Column
@@ -48,6 +49,7 @@ const HomeRow = (props) => {
       mmYY = {props.getMMYY}
     />
   </div>
+  )
 }
 
 HomeRow.propTypes = propTypes;

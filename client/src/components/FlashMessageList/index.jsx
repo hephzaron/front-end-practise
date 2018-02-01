@@ -12,15 +12,25 @@ import { deleteFlashMessage } from '../../actions/flashMessage.js';
  */
 
 class FlashMessageList extends Component {
+
+  /**
+   * @description Lifecycle method invoked when component will unmount
+   * @memberof FlashMessageList
+   * @returns undefined
+   */
   
   componentWillUnmount(){
     this.props.deleteFlashMessageAction
   }
 
+  /**
+   * @description Renders flash message component
+   * @returns {JSX} - JSX
+   * @memberof FlashMessageList
+   */
+
   render () { 
-    const {
-      message,
-    } = this.props;
+    const { message,} = this.props;
     return (
       <SetTimeout interval = {10000}>
         {Object.keys(message).length !==0 &&
@@ -28,18 +38,18 @@ class FlashMessageList extends Component {
         message = {message}/>
       }
       </SetTimeout>
-    )
+    );
   }
   
 }
 
 FlashMessageList.propTypes = {
-  message: PropTypes.object.isRequired,
+  message: PropTypes.object
   deleteFlashMessageAction: PropTypes.func.isRequired
 }
 
 /**
- * @description map state to props
+ * @description Get state from store
  * @param {object} state - redux store state
  * @returns {object} mapped state
  */

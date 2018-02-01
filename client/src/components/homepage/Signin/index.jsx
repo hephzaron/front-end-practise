@@ -13,7 +13,7 @@ const contextTypes = {
 };
 
 const propTypes = {
-  addFlashMessage: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func,
   setCurrentUser: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
   signin: PropTypes.func.isRequired,
@@ -46,9 +46,6 @@ class SignIn extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onGoogleCallback = this.onGoogleCallback.bind(this);
-    this.onFacebookCallback = this.onFacebookCallback.bind(this);
-    this.onGoogleFailure = this.onGoogleFailure.bind(this);
   }
 
   /**
@@ -72,7 +69,7 @@ class SignIn extends Component {
    * @returns {undefined}
    * @memberof SignIn
    */
-  onSubmit(event) => {
+  onSubmit(event) {
     event.preventDefault();
 
     if(!this.isFormValid()){ return; }
@@ -148,12 +145,13 @@ const mapStateToProps = (state) => {
  * @param {object} dispatch
  * @returns {object} map dispatch to props 
  */
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const authActionCreators = {
   signin,
   addFlashMessage,
   setCurrentUser,
   loginUser
-},dispatch);
+}
+ const mapDispatchToProps = (dispatch) => bindActionCreators(authActionCreators,dispatch);
 
-export default connect(mapStateToProps,mapDispatchToProps)(SignIn);
 export {SignIn}
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn);

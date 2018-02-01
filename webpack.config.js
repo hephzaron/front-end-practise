@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -65,7 +66,18 @@ module.exports = {
 
     ],
     resolve: {
-        extensions: [' ', '.js', '.jsx']
+        extensions: [' ', '.js', '.jsx'],
+        alias: {
+            Assets: path.resolve(__dirname, './client/src/assets'),
+            Utils: path.resolve(__dirname, './client/src/utils'),
+            Actions: path.resolve(__dirname, './client/src/actions'),
+            Routes: path.resolve(__dirname, './client/src/Routes'),
+            Public: path.resolve(__dirname, './client/public'),
+            Components: path.resolve(__dirname, './client/src/components'),
+            HomePage: path.resolve(__dirname, './client/src/components/homepage'),
+            Forms: path.resolve(__dirname, './client/src/components/forms'),
+            General: path.resolve(__dirname, './client/src/components/general')
+        }
     },
     devServer: {
         historyApiFallback: true,

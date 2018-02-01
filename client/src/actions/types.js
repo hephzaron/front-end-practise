@@ -1,7 +1,7 @@
 /**
  * @description sets all immutable types for pure redux function
  */
-import mirrorKeys from '../utils/mirrorKeys'
+import mirrorKeys from 'Utils/mirrorKeys'
 
 const actions = [
     'ADD_FLASH_MESSAGE',

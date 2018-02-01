@@ -15,6 +15,7 @@ const propTypes = {
 }
 
 const Jumbotron = (props) => {
+  return(
   <div className = "jumbotron">
     <Column
       colClass = "container"
@@ -24,6 +25,7 @@ const Jumbotron = (props) => {
       name = "Learn more"
       isLoading = {props.isLoading}/>
   </div>
+  )
 }
 
 Jumbotron.propTypes = propTypes;

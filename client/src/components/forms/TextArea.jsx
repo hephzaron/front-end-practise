@@ -8,14 +8,13 @@ import classnames from 'classnames';
  * @returns {void} 
  */
 
-const Textarea = (props) => {
+const Textarea = (props) => (
 	<div className="form-group form-sm">
 		<textarea props.{...rest}>
 		{props.label}
 		</textarea>
 	</div>
-    
-}
+)
 
 Textarea.propTypes = {
 	label:PropTypes.string.isRequired

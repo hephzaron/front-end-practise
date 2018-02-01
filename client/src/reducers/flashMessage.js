@@ -1,4 +1,4 @@
-import types from '../actions/types';
+import types from 'Actions/types';
 
 const { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } = types;
 

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * @returns {void}
  */
 
-const Checkbox = (props) => {
+const Checkbox = (props) => (
     <div className = "checkbox">
 			<label>
 				<input
@@ -18,7 +18,7 @@ const Checkbox = (props) => {
 				{props.label}
 			</label>
     </div>
-}
+)
 
 Checkbox.propTypes = {
 	value: PropTypes.string.isRequired,

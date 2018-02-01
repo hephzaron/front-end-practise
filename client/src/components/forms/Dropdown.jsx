@@ -20,13 +20,16 @@ const Dropdown = (props) => {
 
   const listItems = items.map((item,index)=>{
     if(!item["seperator"]){
-    <li key={index}>
-      <Link 
-        data-toggle = {props.dataToggle} 
-        to = {`/${props.item.link}`}>
-        {props.item.name}
-      </Link>
-    </li>
+      return(
+        <li key={index}>
+          <Link 
+            data-toggle = {props.dataToggle} 
+            to = {`/${props.item.link}`}>
+            {props.item.name}
+          </Link>
+        </li>
+      )
+    
     }
 
     if(item["seperator"]){

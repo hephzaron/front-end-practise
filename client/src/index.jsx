@@ -1,15 +1,18 @@
 import React from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from 'react-dom';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import axios from 'axios';
-import addFlashMessage from './actions/flashMessage';
-import { setCurrentUser, logoutUser } from './actions/userAuth';
-import setAuthToken from './utils/setAuthToken';
-import Routes from './Routes';
-import '../public/css/bootstrap.min.css'
-import '../../template/user.css';
+import addFlashMessage from 'Actions/flashMessage';
+import { setCurrentUser, logoutUser } from 'Actions/userAuth';
+import setAuthToken from 'Utils/setAuthToken';
+import  Routes  from 'Routes';
+import 'Public/css/bootstrap.min.css'
+import 'Public/css/user.css';
+import Main from 'HomePage/Landing/Main';
+import Example from 'HomePage/Landing/Example'
 
 
 /**
@@ -55,7 +58,7 @@ if (localStorage.authToken) {
 
 render( 
     <Provider store = { store } >
-        <Routes/>
+        <Example/>
     </Provider>,
     document.getElementById('app')
 );

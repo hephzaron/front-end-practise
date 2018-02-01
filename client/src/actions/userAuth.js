@@ -1,5 +1,5 @@
 import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
+import setAuthToken from 'Utils/setAuthToken';
 import { addFlashMessage } from './flashMessage';
 import types from './types';
 
@@ -16,15 +16,15 @@ const setCurrentUser = (user) => ({
     user
 });
 
-const logoutUser = () => {
+const logoutUser = () => (
     (dispatch) => {
         localStorage.clear();
         setAuthToken(false);
         dispatch(setCurrentUser({}));
-    };
-};
+    }
+)
 
-const loginUser = (userData) => {
+const loginUser = (userData) => (
     (dispatch) => {
         const { token, userId } = userData;
         const userPayload = userId;
@@ -32,8 +32,8 @@ const loginUser = (userData) => {
         localStorage.setItem('userPayload', JSON.stringify(userPayload));
         setAuthToken(token);
         dispatch(setCurrentUser(userPayload));
-    };
-};
+    }
+)
 
 /**
  * @description send request to server to login user
@@ -41,7 +41,7 @@ const loginUser = (userData) => {
  * @returns {object} It returns axios success response object or error object on error
  */
 
-const signin = (payload) => {
+const signin = (payload) => (
     (dispatch) => {
         axios
             .post('users/signin', payload)
@@ -59,7 +59,7 @@ const signin = (payload) => {
                 }
             )
     }
-}
+)
 
 /**
  * @description sends reset password mail
@@ -67,22 +67,22 @@ const signin = (payload) => {
  * @returns {promise} axios promise
  */
 
-const sendResetPasswordMail = (payload) => {
+const sendResetPasswordMail = (payload) => (
     (dispatch) => axios
-        .post('users/reset-password', payload)
-        .then((response) => {
-            dispatch(addFlashMessage({
-                type: 'success',
-                text: response.data.message
-            }));
-        })
-        .catch((errors) => {
-            dispatch(addFlashMessage({
-                type: 'error',
-                text: errors.response.data.message
-            }));
-        });
-}
+    .post('users/reset-password', payload)
+    .then((response) => {
+        dispatch(addFlashMessage({
+            type: 'success',
+            text: response.data.message
+        }));
+    })
+    .catch((errors) => {
+        dispatch(addFlashMessage({
+            type: 'error',
+            text: errors.response.data.message
+        }));
+    })
+)
 
 /**
  * @description This resets user's password
@@ -90,7 +90,7 @@ const sendResetPasswordMail = (payload) => {
  * @returns {promise} Axios promise object
  */
 
-const resetPassword = (payload) => {
+const resetPassword = (payload) => (
     (dispatch) => {
         axios
             .post('users/reset-password/verify', payload)
@@ -105,8 +105,8 @@ const resetPassword = (payload) => {
                     type: 'error',
                     text: errors.response.data.message
                 }));
-            });
+            })
     }
-}
+)
 
 export { setCurrentUser, logoutUser, loginUser, signin, sendResetPasswordMail, resetPassword };

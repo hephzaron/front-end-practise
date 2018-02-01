@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../forms/Button';
-import SingleInput from '../../forms/SingleInput';
+import Button from 'Forms/Button';
+import SingleInput from 'Forms/SingleInput';
 import FlashMessageList from '../../FlashMessageList/FlashMessage';
 import {Link} from 'react-router';
 
@@ -14,11 +14,14 @@ import {Link} from 'react-router';
  */
 
 const propTypes = {
-  
+  onSubmit:PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  validationError: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }
 
 const ResetPassword = (props) => {
-
+  return(
   <div id = "reset" className = "tab-pane fade">
     <form className = "form-user" onSubmit = {props.onSubmit}>
       <h2 className="form-user-heading">`${'Password reset'}`</h2>
@@ -47,5 +50,9 @@ const ResetPassword = (props) => {
         </Link> 				
     </form>
   </div>
+        )
 
  }
+ ResetPassword.propTypes = propTypes;
+
+ export default ResetPassword;

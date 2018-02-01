@@ -9,7 +9,7 @@ import { isEmpty } from 'lodash';
  * @return {object} isValid and errors
  */
 
-export default (inputs, type) {
+export default function(inputs, type) {
     let errors = {};
     const {
         username,

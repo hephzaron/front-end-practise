@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../forms/Button';
-import Checkbox from '../../forms/Checkbox';
-import SingleInput from '../../forms/SingleInput';
+import Button from 'Forms/Button';
+import Checkbox from 'Forms/Checkbox';
+import SingleInput from 'Forms/SingleInput';
 import FlashMessageList from '../../FlashMessageList/FlashMessage';
 
 /**
@@ -22,7 +22,7 @@ const propTypes = {
 };
 
 const ChangePassword = (props) => {
-  
+return(
 <div>
   <div>
     <h2>HiLib</h2>
@@ -60,9 +60,9 @@ const ChangePassword = (props) => {
         name = "Create"
         icon = {false}
         disabled = {props.isLoading}/>
-
     </form>
   </div>
+    )
 };
 
 ChangePassword.propTypes = propTypes;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import validateUser from 'Utils/validators/user';
 import { addFlashMessage } from 'Actions/flashMessage';
 import { userSignupRequestAction } from 'Actions/register';
@@ -48,7 +50,7 @@ class Register extends Component {
     this.setState({
       user:{
         ...this.state.user,
-        [event.target.name] = event.target.value
+        [event.target.name] : event.target.value
       }
     });
   }

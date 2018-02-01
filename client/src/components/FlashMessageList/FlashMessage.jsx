@@ -9,9 +9,8 @@ import classnames from 'classnames';
  * @returns {string} HTML markup of component
  */
 
-const FlashMesssage = (props)=>{
-  const type = props.type;
-  const text = props.text;
+const FlashMesssage = ({ message })=>{
+  const {type, text} = message;
   return (
     <div className = {classnames('alert',{
         'alert-info': type === 'info',
@@ -31,8 +30,7 @@ const FlashMesssage = (props)=>{
 };
 
 FlashMesssage.propTypes = {
-	type: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired
+  message: PropTypes.object
 }
 
 FlashMesssage.defaultProps = {

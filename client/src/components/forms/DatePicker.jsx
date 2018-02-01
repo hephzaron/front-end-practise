@@ -12,9 +12,9 @@ const propTypes = {
 
 }
 
-const DatePicker = (props) => {
+const DatePicker = (props) => (
 
-}
+)
 
 DatePicker.propTypes = propTypes;
 

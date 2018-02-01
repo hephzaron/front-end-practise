@@ -1,9 +1,8 @@
-import { Link } from 'react-router';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../forms/Button';
-import Checkbox from '../../forms/Checkbox';
-import SingleInput from '../../forms/SingleInput';
+import Button from 'Forms/Button';
+import Checkbox from 'Forms/Checkbox';
+import SingleInput from 'Forms/SingleInput';
 import FlashMessageList from '../../FlashMessageList/FlashMessage';
 
 /**
@@ -22,11 +21,11 @@ const propTypes = {
   user: PropTypes.object.isRequired
 };
 
-const SigninForm = (props) => {
+const SigninForm = (props) => (
   <div id = "signin" className = "tab-pane fade">
     <form className = "form-user" onSubmit = {props.onSubmit}>
       <h2 className = "form-user-heading">Please sign in</h2>
-      <FlashMessageList />
+      {/**<FlashMessageList />**/}
       <SingleInput
         identifier = "inputEmail"
         type = "email"
@@ -63,16 +62,16 @@ const SigninForm = (props) => {
         icon = {false}
         disabled = {props.isLoading}/>
 
-      <Link
+    {/* <Link
         to="/reset-password" data-toggle="tab" 
         className = "btn btn-lg btn-primary btn-inline"
         type="submit">
         Forget password?
-      </Link> 
+    </Link>*/}
 
     </form>
-  </div>;
-};
+  </div>
+)
 
 SigninForm.propTypes = propTypes;
 

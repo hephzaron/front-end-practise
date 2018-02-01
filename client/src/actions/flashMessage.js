@@ -1,4 +1,4 @@
-import types from '../actions/types';
+import types from 'Actions/types';
 
 const { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } = types;
 
@@ -8,17 +8,13 @@ const { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } = types;
  * @returns {object} this returns action creator
  */
 
-const addFlashMessage = (message) => {
-    ({
-        type: ADD_FLASH_MESSAGE,
-        message
-    })
-}
+const addFlashMessage = (message) => ({
+    type: ADD_FLASH_MESSAGE,
+    message
+})
 
-const deleteFlashMessage = () => {
-    ({
-        type: DELETE_FLASH_MESSAGE
-    });
-};
+const deleteFlashMessage = () => ({
+    type: DELETE_FLASH_MESSAGE
+})
 
 export default { addFlashMessage, deleteFlashMessage };
