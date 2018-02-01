@@ -12,6 +12,7 @@ const SingleInput = (props) => (
   <div className={
     classnames(`form-group form-sm ${props.containerClass || ''}`)}>
     <label
+      style={props.labelStyle}
       htmlFor={props.identifier}
       className={classnames('sr-only')}>
       {props.placeholder}
@@ -23,7 +24,7 @@ const SingleInput = (props) => (
       className={classnames('form-control')}
       placeholder={props.placeholder}
       onChange={props.onChange}
-      value={props.value}
+     // value={props.value}
     />
   </div>
 );
@@ -33,6 +34,7 @@ SingleInput.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   label: PropTypes.string,
+  labelStyle: PropTypes.object,
   onChange: PropTypes.func,
   containerClass: PropTypes.string,
   value: PropTypes.string

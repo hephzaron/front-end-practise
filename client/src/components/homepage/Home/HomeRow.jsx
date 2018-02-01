@@ -30,7 +30,6 @@ const HomeRow = (props) => {
         onClick = {props.viewMission}
         name = "View details"
         isLoading = {props.isLoading}/>
-
       <Column
         heading = "Our Vision"
         content = {props.visionMessage}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import validateUser from 'Utils/validators/user';
 import { addFlashMessage } from 'Actions/flashMessage';
@@ -11,7 +12,7 @@ const contextTypes = {
 };
 
 const propTypes = {
-  addFlashMessage: PropTypes.func.isRequired,
+  //addFlashMessage: PropTypes.func.isRequired,
   userSignupRequest: PropTypes.func.isRequired
 };
 

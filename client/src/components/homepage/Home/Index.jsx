@@ -27,17 +27,21 @@ class Home extends Component {
       messageContent: 'we are passionate about bulding a reading culture in students and ...'
     };
   };
+  componentWillMount(){
+    document.body.style.textAlign="center";
+  }
 
   componentDidMount(){
     this.setState({isLoading:false});
   };
   componentWillUnmount(){
     this.setState({isLoading:true});
+    document.body.style.textAlign = null;
   }
 
   render(){
     return(    
-      <div id="home" className="tab-pane fade in active">
+      <div>
       {/* Main jumbotron welcomes user to hilib */}
         <Jumbotron
           welcomeMessage = {`${this.message} ${this.state.messageContent}`}

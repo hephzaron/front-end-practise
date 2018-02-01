@@ -19,7 +19,7 @@ export default function(inputs, type) {
         oldPassword
     } = inputs;
 
-    if (type === 'register' || type === 'change-password' || type === 'login') {
+    if (type == 'register' || 'change-password' || 'login') {
         let re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w$/;
         if (Validator.isEmpty(password)) {
             errors.password = 'Please enter password'

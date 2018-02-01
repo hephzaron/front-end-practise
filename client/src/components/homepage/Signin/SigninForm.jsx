@@ -22,15 +22,14 @@ const propTypes = {
 };
 
 const SigninForm = (props) => (
-  <div id = "signin" className = "tab-pane fade">
-    <form className = "form-user" onSubmit = {props.onSubmit}>
-      <h2 className = "form-user-heading">Please sign in</h2>
+    <form onSubmit = {props.onSubmit}>
       {/**<FlashMessageList />**/}
       <SingleInput
         identifier = "inputEmail"
         type = "email"
         placeholder = "Email address"
-        label = "Email address"
+        label = "Email address :"
+        labelStyle = {{textAlign:'right'}}
         onChange = {props.onChange}
         value = {props.user.email}/>
 
@@ -44,7 +43,8 @@ const SigninForm = (props) => (
         identifier = "inputPassword"
         type = "passowrd"
         placeholder = "Password"
-        label = "Password"
+        label = "Password :"
+        labelStyle = {{float: 'left'}}
         onChange = {props.onChange}/>
       {props.validationError.email &&
         <p className = "form-text text-danger">
@@ -70,7 +70,6 @@ const SigninForm = (props) => (
     </Link>*/}
 
     </form>
-  </div>
 )
 
 SigninForm.propTypes = propTypes;

@@ -60,7 +60,7 @@ class SignIn extends Component {
         ...this.state.user,
         [event.target.name]:event.target.value
       }
-    })
+    });
   }
 
  /**
@@ -109,6 +109,7 @@ class SignIn extends Component {
    */
 
   render() {
+
     return(
       <SigninForm
         signin = {this.props.signin}

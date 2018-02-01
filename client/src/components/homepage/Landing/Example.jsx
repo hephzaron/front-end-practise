@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  NavLink
 } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -35,6 +36,15 @@ class BasicExample extends Component {
     this.setState({isLoading:false})
   }
   render(){
+    {/*Custom style for active NavLink element*/}
+    const selected = {
+      fontWeight:'bold',
+      color:'#093356' ,
+      background: 'white',
+      boxShadow: '0 -4px 0 rgb(130, 130, 233)',
+      borderRadius:'0px'
+
+    };
     
     return(
       <Router>
@@ -42,26 +52,26 @@ class BasicExample extends Component {
           <nav className="navbar navbar-default">
             <div className= "container-fluid">
               <div  className="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
                 </button>
               </div>
               <h4 className="navbar-right">Welcome to HiLib</h4>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav">
-                  <li><Link to = "/"> Home</Link></li>
-                  <li><Link to = "/signin"> Sign In</Link></li>
-                  <li><Link to = "/register">Register</Link></li>
-                  <li><Link to = "/about">What we offer</Link></li>
+                <ul className="nav navbar-nav nav-tabs" id="myTab">
+                  <li><NavLink exact to = "/" activeStyle={selected} > Home</NavLink></li>
+                  <li><NavLink exact to = "/signin" activeStyle={selected}> Sign In</NavLink></li>
+                  <li><NavLink exact to = "/register" activeStyle={selected}>Register</NavLink></li>
+                  <li><NavLink exact to = "/about" activeStyle={selected}>What we offer</NavLink></li>
                 </ul>
               </div>
             </div>
           </nav>
           <Route exact path="/" component= {this.MyHomePage} />
-          <Route path="/signin" component= {Signin}/>
+          <Route exact path="/signin" component= {Signin}/>
           <Route exact path="/register" component= {Register}/>
           <Route exact path="/about" component= {ChangePassword}/>
         </div>

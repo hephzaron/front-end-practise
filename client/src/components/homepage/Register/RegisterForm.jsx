@@ -27,22 +27,18 @@ const propTypes = {
  * @param {null}
  * @return {string} returns the link to terms and condition of memebership
  */
-const terms = () => {
-  return(
+const terms = () => (
     <a href="#rules">terms and condition</a>
   ) 
-}
 
-const RegisterForm = (props) => {
-  <div id = "register" className = "tab-pane fade">
-    <form className = "form-user" onSubmit = {props.onSubmit}>
-      <h2 className = "form-user-heading">Register here</h2>
-        <FlashMessageList />
+const RegisterForm = (props) => (
+    <form onSubmit = {props.onSubmit}>
+        {/**<FlashMessageList />**/}
         <SingleInput
           identifier = "inputUsername"
           type = "username"
           placeholder = "Username"
-          label = "Username"
+          label = "Username :"
           onChange = {props.onChange}
           value = {props.user.username}/>
             {
@@ -56,7 +52,7 @@ const RegisterForm = (props) => {
           identifier = "inputEmail"
           type = "email"
           placeholder = "Email address"
-          label = "Email address"
+          label = "Email address :"
           onChange = {props.onChange}
           value = {props.user.email}/>
             {
@@ -70,7 +66,7 @@ const RegisterForm = (props) => {
           identifier = "inputPassword"
           type = "passowrd"
           placeholder = "Password"
-          label = "Password"
+          label = "Password :"
           onChange = {props.onChange}/>
             {
               props.validationError.password && 
@@ -83,7 +79,7 @@ const RegisterForm = (props) => {
           identifier = "confirmPassword"
           type = "passowrd"
           placeholder = "Confirm Password"
-          label = "Password"
+          label = "Password :"
           onChange = {props.onChange}/>
             {
               props.validationError.confirmPassword && 
@@ -94,7 +90,7 @@ const RegisterForm = (props) => {
 
         <Checkbox
           value = "terms"
-          label = {`I agree to the ${terms}`}/>
+          label = {`I agree to the ${terms()}`}/>
           
         <Button
           name = "Register"
@@ -102,14 +98,13 @@ const RegisterForm = (props) => {
           disabled = {props.isLoading}
           className = "btn-success"/>
         
-        <Link
+       {/** <Link
          to="/signin" data-toggle="tab" 
          className = "btn btn-lg btn-primary btn-inline">
          Already Registered?
-        </Link>          
+       </Link> **/}        
       </form>
-    </div>
-}
+)
 
 RegisterForm.propTypes = propTypes;
 
