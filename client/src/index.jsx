@@ -11,8 +11,7 @@ import setAuthToken from 'Utils/setAuthToken';
 import  Routes  from 'Routes';
 import 'Public/css/bootstrap.min.css'
 import 'Public/css/user.css';
-import Main from 'HomePage/Landing/Main';
-import Example from 'HomePage/Landing/Example'
+import Main from 'HomePage/Landing/Main'
 
 
 /**
@@ -58,7 +57,7 @@ if (localStorage.authToken) {
 
 render( 
     <Provider store = { store } >
-        <Example/>
+        <Main/>
     </Provider>,
     document.getElementById('app')
 );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import Dropdown from '../forms/Dropdown';
 import PropTypes from 'prop-types';
 export default class HomePage extends Component {
 
@@ -23,7 +22,7 @@ export default class HomePage extends Component {
       //Update state
       this.setState({items: this.dropDownItems})
     }
-    c
+    
     render(){
         return(
           <div className="container">
