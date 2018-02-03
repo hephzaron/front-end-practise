@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'Forms/Button';
@@ -19,6 +19,8 @@ const propTypes = {
     onSubmit: PropTypes.func.isRequired,
     validationError: PropTypes.object.isRequired,
     isLoading: PropTypes.bool.isRequired,
+    isChecked: PropTypes.bool.isRequired,
+    toggleCheckbox: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired
 }
 
@@ -27,8 +29,8 @@ const propTypes = {
  * @param {null}
  * @return {string} returns the link to terms and condition of memebership
  */
-const terms = () => (
-    <a href="#rules">terms and condition</a>
+const Terms = () => (
+    <a  href="/terms-and-condition">terms and condition</a>
   ) 
 
 const RegisterForm = (props) => (
@@ -36,8 +38,8 @@ const RegisterForm = (props) => (
         {/**<FlashMessageList />**/}
         <SingleInput
           identifier = "inputUsername"
-          type = "username"
           placeholder = "Username"
+          name = "username"
           label = "Username :"
           onChange = {props.onChange}
           value = {props.user.username}/>
@@ -51,6 +53,7 @@ const RegisterForm = (props) => (
         <SingleInput
           identifier = "inputEmail"
           type = "email"
+          name = "email"
           placeholder = "Email address"
           label = "Email address :"
           onChange = {props.onChange}
@@ -64,10 +67,12 @@ const RegisterForm = (props) => (
             
         <SingleInput
           identifier = "inputPassword"
-          type = "passowrd"
+          type = "password"
+          name = "password"
           placeholder = "Password"
           label = "Password :"
-          onChange = {props.onChange}/>
+          onChange = {props.onChange}
+          value = {props.user.password}/>
             {
               props.validationError.password && 
                 <p className = "form-text text-danger">
@@ -77,10 +82,12 @@ const RegisterForm = (props) => (
 
         <SingleInput
           identifier = "confirmPassword"
-          type = "passowrd"
+          type = "password"
+          name = "confirmPassword"
           placeholder = "Confirm Password"
           label = "Password :"
-          onChange = {props.onChange}/>
+          onChange = {props.onChange}
+          value = {props.user.confirmPassword}/>
             {
               props.validationError.confirmPassword && 
                 <p className = "form-text text-danger">
@@ -90,19 +97,23 @@ const RegisterForm = (props) => (
 
         <Checkbox
           value = "terms"
-          label = {`I agree to the ${terms()}`}/>
-          
+          label = {`I agree to the`}
+          isChecked = {props.isChecked}
+          toggleCheckbox = {props.toggleCheckbox}/>
+          {<Terms/>}
+        <div style = {{display:'inline-block'}}>  
         <Button
           name = "Register"
           icon = {false}
           disabled = {props.isLoading}
           className = "btn-success"/>
         
-       {/** <Link
-         to="/signin" data-toggle="tab" 
-         className = "btn btn-lg btn-primary btn-inline">
-         Already Registered?
-       </Link> **/}        
+        <Link
+          to="/signin"
+          className = "btn btn-lg btn-primary btn-inline">
+          Already Registered?
+       </Link> 
+       </div>       
       </form>
 )
 

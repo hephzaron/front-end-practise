@@ -16,6 +16,19 @@ const propTypes = {
   userSignupRequest: PropTypes.func.isRequired
 };
 
+/**Make state available globally */
+let state = {
+  user: {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  },
+  isLoading: false,
+  isChecked: false,
+  errors: {}
+}
+
 /**
  * @description This renders the signup component
  * @class Register
@@ -25,20 +38,16 @@ const propTypes = {
 class Register extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      user: {
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      },
-      isLoading: false,
-      errors: {}
-    }
-
-  this.onChange = this.onChange.bind(this);
-  this.onSubmit = this.onSubmit.bind(this);
+    this.state = state;
+    
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.toggleCheckbox = this.toggleCheckbox.bind(this);
   };
+
+  componentWillUnmount(){
+    state = this.state;
+  }
   
   /**
   * @description This handles form input onChnage event
@@ -65,7 +74,10 @@ class Register extends Component {
 
    onSubmit(event){
      event.preventDefault();
+
      if(!this.isFormValid()){ return;}
+     alert(this.state.user)
+     
      this.setState({isLoading:true});
      this.props.userSignupRequest(this.state.user)
       .then(data=>{
@@ -76,6 +88,17 @@ class Register extends Component {
         }
       })
    };
+  /**
+   * @description Handles toggling of checkbox
+   * @param {void}
+   * @returns void
+   * @memberof Register
+   */
+  toggleCheckbox(){
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
+  }
 
   /**
    * @description This validate user entries
@@ -85,7 +108,7 @@ class Register extends Component {
    */
 
   isFormValid(){
-    const { errors, isValid } = validateUser(this.state.user,'Register');
+    const { errors, isValid } = validateUser(this.state.user,'register');
     if(!isValid){
       this.setState({errors});
     }
@@ -100,7 +123,8 @@ class Register extends Component {
         isLoading = {this.state.isLoading}
         onChange = {this.onChange}
         onSubmit = {this.onSubmit}
-        />
+        isChecked = { this.state.isChecked}
+        toggleCheckbox = {this.toggleCheckbox}/>
     )
   }
 

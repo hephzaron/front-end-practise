@@ -10,7 +10,7 @@ import classnames from 'classnames';
 
 const Textarea = (props) => (
 	<div className="form-group form-sm">
-		<textarea props.{...rest}>
+		<textarea {...rest}>
 		{props.label}
 		</textarea>
 	</div>

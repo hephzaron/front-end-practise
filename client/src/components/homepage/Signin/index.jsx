@@ -20,6 +20,18 @@ const propTypes = {
   isAuthenticated: PropTypes.bool.isRequired
 };
 
+/*Make state available globally */
+let state = {
+  user: {
+    email: '',
+    password: '',
+    oauthID: ''
+  },
+  isLoading: false,
+  isChecked: true,
+  errors: {}
+};
+
 /**
  * @description -SignIn component
  * @class SignIn
@@ -34,18 +46,16 @@ class SignIn extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      user: {
-        email: '',
-        password: '',
-        oauthID: ''
-      },
-      isLoading: false,
-      errors: {}
-    };
+    this.state = state
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.toggleCheckbox = this.toggleCheckbox.bind(this);
+  }
+
+  componentWillUnmount(){
+    //Remember state for the next mount
+    state = this.state
   }
 
   /**
@@ -71,8 +81,9 @@ class SignIn extends Component {
    */
   onSubmit(event) {
     event.preventDefault();
-
+    
     if(!this.isFormValid()){ return; }
+    alert(this.state.user)
 
     this.setState({ isLoading: true });
     this.props.signin(this.state.user)
@@ -87,6 +98,12 @@ class SignIn extends Component {
       });
   }
 
+  toggleCheckbox(){
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
+  }
+
   /**
    * @description This validates user entry
    * @param {void}
@@ -95,7 +112,7 @@ class SignIn extends Component {
    */
 
   isFormValid(){
-    const {errors,isValid} = validateUser(this.state.user, 'login');
+    const { errors, isValid } = validateUser(this.state.user, 'login');
     if(!isValid) {
       this.setState({errors});
     }
@@ -112,6 +129,7 @@ class SignIn extends Component {
 
     return(
       <SigninForm
+        validationError = {this.state.errors}
         signin = {this.props.signin}
         addFlashMessage = {this.props.addFlashMessage}
         setCurrentUser = {this.props.setCurrentUser}
@@ -119,8 +137,9 @@ class SignIn extends Component {
         isLoading = {this.state.isLoading}
         onChange = {this.onChange}
         onSubmit = {this.onSubmit}
-        validationError = {this.state.errors}
-        user = {this.state.user}/>
+        user = {this.state.user}
+        isChecked = {this.state.isChecked}
+        toggleCheckbox = {this.toggleCheckbox}/>
     )
   }
 
@@ -154,5 +173,5 @@ const authActionCreators = {
 }
  const mapDispatchToProps = (dispatch) => bindActionCreators(authActionCreators,dispatch);
 
-export {SignIn}
+export { SignIn }
 export default connect(mapStateToProps,mapDispatchToProps)(SignIn);

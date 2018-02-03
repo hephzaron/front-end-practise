@@ -9,11 +9,12 @@ import PropTypes from 'prop-types';
 
 const Checkbox = (props) => (
     <div className = "checkbox">
-			<label>
+			<label >
 				<input
 				 type = "checkbox" 
 				 value = {props.value} 
-				 onChange = {props.onChange}
+				 onChange = {props.toggleCheckbox}
+				 checked = {props.isChecked}
 				/>
 				{props.label}
 			</label>
@@ -23,7 +24,8 @@ const Checkbox = (props) => (
 Checkbox.propTypes = {
 	value: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	onChange: PropTypes.func
+	toggleCheckbox: PropTypes.func.isRequired,
+	isChecked : PropTypes.bool.isRequired
 }
 
 Checkbox.defaultProps = {

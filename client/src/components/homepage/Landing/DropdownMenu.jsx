@@ -11,7 +11,7 @@ const onSelectAlert =  (eventKey) => {
 }
 
 const ServiceDropdown = () => (
-    <SplitButton title="What we offer !" pullRight id="split-button-pull-right">
+    <SplitButton title="What we offer !" pullRight id="split-button-pull-right" >
       <MenuItem header>Choose type</MenuItem>
       <MenuItem eventKey={1} href="/audio-books" onSelect={onSelectAlert}>Get Audio Books</MenuItem>
       <MenuItem eventKey={2} href="/online-books" onSelect={onSelectAlert}>Get Online Books</MenuItem>

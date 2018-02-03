@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Button from 'Forms/Button';
 import Checkbox from 'Forms/Checkbox';
 import SingleInput from 'Forms/SingleInput';
@@ -18,6 +19,8 @@ const propTypes = {
   onSubmit: PropTypes.func.isRequired,
   validationError: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  toggleCheckbox: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired
 };
 
@@ -27,9 +30,9 @@ const SigninForm = (props) => (
       <SingleInput
         identifier = "inputEmail"
         type = "email"
+        name = "email"
         placeholder = "Email address"
         label = "Email address :"
-        labelStyle = {{textAlign:'right'}}
         onChange = {props.onChange}
         value = {props.user.email}/>
 
@@ -41,12 +44,13 @@ const SigninForm = (props) => (
 
       <SingleInput
         identifier = "inputPassword"
-        type = "passowrd"
+        type = "password"
+        name = "password"
         placeholder = "Password"
         label = "Password :"
-        labelStyle = {{float: 'left'}}
-        onChange = {props.onChange}/>
-      {props.validationError.email &&
+        onChange = {props.onChange}
+        value = {props.user.password}/>
+      {props.validationError.password &&
         <p className = "form-text text-danger">
           {props.validationError.password}
         </p>
@@ -54,7 +58,9 @@ const SigninForm = (props) => (
 
       <Checkbox
         value = "remember-me"
-        label = "Remember me"/>
+        label = "Remember me"
+        isChecked = {props.isChecked}
+        toggleCheckbox = {props.toggleCheckbox}/>
 
       <Button
         className = "btn-success"
@@ -62,12 +68,12 @@ const SigninForm = (props) => (
         icon = {false}
         disabled = {props.isLoading}/>
 
-    {/* <Link
-        to="/reset-password" data-toggle="tab" 
+      <Link
+        to="/reset-password"
         className = "btn btn-lg btn-primary btn-inline"
         type="submit">
         Forget password?
-    </Link>*/}
+      </Link>
 
     </form>
 )

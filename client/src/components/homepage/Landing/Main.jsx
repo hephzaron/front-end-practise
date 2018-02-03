@@ -15,6 +15,7 @@ import Signin from 'HomePage/Signin';
 import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
 import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
 import ServiceDropdown from './DropdownMenu';
+import CustomDropdown from '../../general/CustomDropdown';
 class Main extends Component {
 
   constructor(props){
@@ -60,6 +61,7 @@ class Main extends Component {
                 </button>
               </div>
               <h4 className="navbar-right">
+                <CustomDropdown/>
                 <ServiceDropdown/>
                  {`  Welcome to HiLib`}
               </h4>
