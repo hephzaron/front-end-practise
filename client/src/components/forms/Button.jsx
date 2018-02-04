@@ -17,7 +17,8 @@ const Button = (props) =>{
                 )}
                 type = {props.type} 
                 disabled = {props.disabled}
-                onClick = {props.onClick}>
+                onClick = {props.onClick}
+                style = {props.buttonStyle}>
                 {props.icon ? `${props.name} ${'>>'}`: props.name}
             </button>
     </div>
@@ -30,7 +31,8 @@ Button.propTypes = {
     icon: PropTypes.bool,
     disabled: PropTypes.bool,
     className: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    buttonStyle: PropTypes.object
 }
 
 Button.defaultProps = {

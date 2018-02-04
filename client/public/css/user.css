@@ -77,6 +77,7 @@ form {
     margin-right: auto;
     border-radius: 0 0 5px 5px;
     box-shadow: 0 0 5px 5px rgb(130, 130, 233);
-    padding: 40px 10px 40px 10px;
-    background: white
+    padding: 40px 10px 60px 10px;
+    background: white;
+    height: auto;
 }

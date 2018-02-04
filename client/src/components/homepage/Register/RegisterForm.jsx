@@ -30,7 +30,7 @@ const propTypes = {
  * @return {string} returns the link to terms and condition of memebership
  */
 const Terms = () => (
-    <a  href="/terms-and-condition">terms and condition</a>
+    <a  href="/terms-and-condition" style = {{float:'left'}}>terms and condition</a>
   ) 
 
 const RegisterForm = (props) => (
@@ -94,26 +94,26 @@ const RegisterForm = (props) => (
                   {props.validationError.confirmPassword}
                 </p>
             }
-
         <Checkbox
           value = "terms"
           label = {`I agree to the`}
           isChecked = {props.isChecked}
-          toggleCheckbox = {props.toggleCheckbox}/>
+          toggleCheckbox = {props.toggleCheckbox}
+          checkboxStyle = {{float:'left',marginRight:'10px'}}/>
           {<Terms/>}
-        <div style = {{display:'inline-block'}}>  
         <Button
           name = "Register"
           icon = {false}
           disabled = {props.isLoading}
-          className = "btn-success"/>
+          className = "btn-success"
+          buttonStyle = {{float:'left',margin:'20px',backgroundColor:'#357EC7', borderColor:'#357EC7'}}/>
         
         <Link
           to="/signin"
-          className = "btn btn-lg btn-primary btn-inline">
+          className = "btn btn-lg btn-primary btn-inline"
+          style = {{float:'left',margin:'20px'}}>
           Already Registered?
-       </Link> 
-       </div>       
+       </Link>       
       </form>
 )
 

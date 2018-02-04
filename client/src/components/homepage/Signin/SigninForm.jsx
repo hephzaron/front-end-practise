@@ -66,12 +66,14 @@ const SigninForm = (props) => (
         className = "btn-success"
         name = "Sign in"
         icon = {false}
-        disabled = {props.isLoading}/>
+        disabled = {props.isLoading}
+        buttonStyle = {{float:'left',margin:'5px',backgroundColor:'#357EC7',borderColor:'#357EC7'}}/>
 
       <Link
         to="/reset-password"
         className = "btn btn-lg btn-primary btn-inline"
-        type="submit">
+        type="submit"
+        style = {{float:'left',margin:'5px'}}>
         Forget password?
       </Link>
 
