@@ -30,7 +30,7 @@ export default function(inputs, type) {
             }
         }
     }
-    if (type !== 'login') {
+    if (type !== 'login' && type !== 'reset-password') {
         if (Validator.isEmpty(confirmPassword)) {
             errors.confirmPassword = 'Please confirm password'
         }

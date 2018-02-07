@@ -8,7 +8,9 @@ const actions = [
     'DELETE_FLASH_MESSAGE',
     'SET_CURRENT_USER',
     'UNSET_CURRENT_USER',
-    'GET_NOTIFICATIONS'
+    'GET_NOTIFICATIONS',
+    'SHOW_MODAL',
+    'HIDE_MODAL'
 ]
 
 export default mirrorKeys(actions);

@@ -10,6 +10,12 @@ const onSelectAlert =  (eventKey) => {
   alert(`Alert from menu item .\neventKey: ${eventKey}`);
 }
 
+/**
+ * @description Renders a custom dropdown component
+ * @param {void}
+ * @return {JSX}
+ */
+
 const ServiceDropdown = () => (
     <SplitButton title="What we offer !" pullRight id="split-button-pull-right" >
       <MenuItem header>Choose type</MenuItem>

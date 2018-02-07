@@ -6,13 +6,18 @@ import {
 } from 'react-bootstrap';
 import RootCloseWrapper from 'react-overlays/lib/RootCloseWrapper';
 
+/**
+ * @description Renders a custom dropdown component
+ * @param {object} - props and context
+ * @return {JSX}
+ */
+
 class CustomToggle extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
   }
-
   handleClick(e) {
     e.preventDefault();
 

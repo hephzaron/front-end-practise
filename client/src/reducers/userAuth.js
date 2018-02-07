@@ -1,6 +1,6 @@
 import { isEmpty } from 'lodash';
 import types from 'Actions/types';
-import { initialAuthState } from '../reducers/initialState';
+import { initialAuthState } from './initialState';
 
 const { SET_CURRENT_USER } = types;
 

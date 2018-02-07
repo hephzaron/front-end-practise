@@ -5,6 +5,9 @@ import Button from 'Forms/Button';
 import Checkbox from 'Forms/Checkbox';
 import SingleInput from 'Forms/SingleInput';
 import FlashMessageList from '../../FlashMessageList/FlashMessage';
+import ResetPasswordModal from '../ResetPassword';
+import { showModal } from 'Actions/modal'; //Action creator
+import { SHOW_MODAL } from 'Actions/types'
 
 /**
  * sign in page component begins
@@ -21,7 +24,8 @@ const propTypes = {
   isLoading: PropTypes.bool.isRequired,
   isChecked: PropTypes.bool.isRequired,
   toggleCheckbox: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  handleResetClick: PropTypes.func.isRequired
 };
 
 const SigninForm = (props) => (
@@ -73,7 +77,8 @@ const SigninForm = (props) => (
         to="/reset-password"
         className = "btn btn-lg btn-primary btn-inline"
         type="submit"
-        style = {{float:'left',margin:'5px'}}>
+        style = {{float:'left',margin:'5px'}}
+        onClick = {props.handleResetClick}>
         Forget password?
       </Link>
 

@@ -76,7 +76,6 @@ class Register extends Component {
      event.preventDefault();
 
      if(!this.isFormValid()){ return;}
-     alert(this.state.user)
      
      this.setState({isLoading:true});
      this.props.userSignupRequest(this.state.user)

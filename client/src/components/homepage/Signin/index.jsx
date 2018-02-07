@@ -4,9 +4,13 @@ import {  connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes, { func } from 'prop-types';
 import { loginUser, signin, setCurrentUser } from 'Actions/userAuth';
+import { loadModal, showModal, hideModal } from 'Actions/modal';
 import validateUser from 'Utils/validators/user';
 import { addFlashMessage } from 'Actions/flashMessage';
 import SigninForm from './SigninForm';
+/**Modal type constant */
+import modalTypes from  '../../Modal/modalTypes'
+const { RESET_PASSWORD_MODAL } = modalTypes;
 
 const contextTypes = {
   router: PropTypes.object.isRequired
@@ -17,7 +21,9 @@ const propTypes = {
   setCurrentUser: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
   signin: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  loadModal: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired
 };
 
 /*Make state available globally */
@@ -51,6 +57,7 @@ class SignIn extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
   }
 
   componentWillUnmount(){
@@ -83,8 +90,7 @@ class SignIn extends Component {
     event.preventDefault();
     
     if(!this.isFormValid()){ return; }
-    alert(this.state.user)
-
+    
     this.setState({ isLoading: true });
     this.props.signin(this.state.user)
       .then((data) => {
@@ -119,13 +125,25 @@ class SignIn extends Component {
     return isValid;
   };
 
+
+  /**
+   * @description Handles user request to reset password
+   * @method {handleResetClick}
+   * @param { void }
+   * @memberof SignIn
+   */
+  
+   handleResetClick(){
+     this.props.showModal(RESET_PASSWORD_MODAL)
+    }
+
+
   /**
    * @description Renders component
    * @returns {object} JSX
    * @memberof SignIn
    */
-
-  render() {
+render() {
 
     return(
       <SigninForm
@@ -139,7 +157,9 @@ class SignIn extends Component {
         onSubmit = {this.onSubmit}
         user = {this.state.user}
         isChecked = {this.state.isChecked}
-        toggleCheckbox = {this.toggleCheckbox}/>
+        toggleCheckbox = {this.toggleCheckbox}
+        showModal = {this.props.showModal}
+        handleResetClick = {this.handleResetClick}/>
     )
   }
 
@@ -160,18 +180,23 @@ const mapStateToProps = (state) => {
   }
 };
 
+
 /**
  * @description Maps dispatch to props
  * @param {object} dispatch
  * @returns {object} map dispatch to props 
  */
-const authActionCreators = {
+
+const actionCreators = {
   signin,
   addFlashMessage,
   setCurrentUser,
-  loginUser
+  loginUser,
+  loadModal,
+  showModal
 }
- const mapDispatchToProps = (dispatch) => bindActionCreators(authActionCreators,dispatch);
+
+
 
 export { SignIn }
-export default connect(mapStateToProps,mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, actionCreators)(SignIn);

@@ -16,6 +16,15 @@ import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
 import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
 import ServiceDropdown from './DropdownMenu';
 import CustomDropdown from '../../general/CustomDropdown';
+import  ModalContainer  from 'Components/Modal'
+
+/**
+ * @description Renders the Landing page on user visit to site
+ * @class Main 
+ * @extends React.Component
+ * @param {object} props
+ * @return {JSX} -JSX element
+ */
 class Main extends Component {
 
   constructor(props){
@@ -77,6 +86,7 @@ class Main extends Component {
           <Route exact path="/" component= {this.MyHomePage} />
           <Route exact path="/signin" component= {Signin}/>
           <Route exact path="/register" component= {Register}/>
+          <ModalContainer />
         </div>
       </Router>
     
