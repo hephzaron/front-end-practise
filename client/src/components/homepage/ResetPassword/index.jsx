@@ -38,6 +38,10 @@ class PasswordResetModal extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillUnmount(){
+    //this.context.router.push('/signin');
+  }
+
   onClose(){
     this.props.closeModal()
   }
@@ -126,7 +130,11 @@ const propTypes = {
   resetPasswordAction: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired
 }
+const contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
+PasswordResetModal.contextTypes = contextTypes;
 PasswordResetModal.propTypes = propTypes;
 
 export { PasswordResetModal }
