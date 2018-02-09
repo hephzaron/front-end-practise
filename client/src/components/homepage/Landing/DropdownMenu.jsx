@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import classnames from 'classnames'
+import classnames from 'classnames';
+import CustomList from '../../general/CustomList';
 
 const onSelectAlert =  (eventKey) => {
   alert(`Alert from menu item .\neventKey: ${eventKey}`);
@@ -10,23 +11,40 @@ const onSelectAlert =  (eventKey) => {
  * @param {void}
  * @return {JSX}
  */
-
+const listContent = [
+  { 
+    name:'Read a book',
+    href:'/signin'
+  },{
+    name: 'Get a book',
+    href:'/signin'
+  },{
+    role:'seperator'
+  },{
+    name: 'Visit a bookshop',
+    role:'header',
+    href:'#'
+  },{
+    role:'seperator'
+  },{
+    name: 'Contact Us',
+    href: '#'
+  }
+]
 const ServiceDropdown = () => (
   <div className = "btn-group dropdown">
     <h5 className="dropdown-toggle"
         aria-haspopup="true"
         aria-expanded="false"
         style ={{fontWeight:'bold'}}>
-        {`Our services`}<span className="caret"></span>
+        {`Our Services`}<span className="caret"></span>
     </h5>
-    <ul className="dropdown-menu dropdown-menu-triangle-b-d">
-      <li><a href="/signin">{`Read a book`}</a></li>
-      <li><a href="#">{`Get a book`}</a></li>
-      <li role = "seperator" className="divider"></li>
-      <li><a href="#">{`Visit a bookshop`}</a></li>
-      <li role = "seperator" className="divider"></li>
-      <li><a href="#">{`Contact us`}</a></li>
-    </ul>
+    <CustomList
+      identifier={'#services'}
+      listDirection={'down'}
+      listContent={listContent}
+    />
+
   </div>
 )
 

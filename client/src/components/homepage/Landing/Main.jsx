@@ -43,14 +43,7 @@ class Main extends Component {
   }
 
 
-  componentDidMount(){
-    $(".dropdown-toggle").click(()=>{
-      $(".dropdown-menu").toggle()
-    });
-    $(".navbar-toggle").click(()=>{
-      $("#bs-example-navbar-collapse-l").toggle()
-    })
-    //$("dropdown-toggle").toggle();
+  componentDidMount(){  
     this.setState({isLoading:false})
   }
   render(){
