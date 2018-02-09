@@ -58,13 +58,6 @@ h4 {
 }
 
 
-/*
-a.active {
-    color: #000000;
-    text-decoration: underline
-}*/
-
-
 /* Custom style for sign in form*/
 
 form {
@@ -80,4 +73,31 @@ form {
     padding: 40px 10px 60px 10px;
     background: white;
     height: auto;
+}
+
+
+/**Custom styling to add triangle to dropdown*/
+
+.dropdown-menu-triangle-b-d:before,
+.dropdown-menu-triangle-b-d:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+}
+
+.dropdown-menu-triangle-b-d:before {
+    top: -7px;
+    left: 9px;
+    border-bottom: 7px solid #ccc;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu-triangle-b-d:after {
+    top: -6px;
+    left: 10px;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent
 }

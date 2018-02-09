@@ -5,6 +5,8 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
+import $ from 'jquery';
+import { findDOMNode } from 'react-dom'
 
 import PropTypes from 'prop-types';
 
@@ -15,7 +17,6 @@ import Signin from 'HomePage/Signin';
 import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
 import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
 import ServiceDropdown from './DropdownMenu';
-import CustomDropdown from '../../general/CustomDropdown';
 import  ModalContainer  from 'Components/Modal'
 
 /**
@@ -43,17 +44,23 @@ class Main extends Component {
 
 
   componentDidMount(){
+    $(".dropdown-toggle").click(()=>{
+      $(".dropdown-menu").toggle()
+    });
+    $(".navbar-toggle").click(()=>{
+      $("#bs-example-navbar-collapse-l").toggle()
+    })
+    //$("dropdown-toggle").toggle();
     this.setState({isLoading:false})
   }
   render(){
     {/*Custom style for active NavLink element*/}
     const selected = {
       fontWeight:'bold',
-      color:'#093356' ,
-      background: 'white',
-      boxShadow: '0 -4px 0 rgb(130, 130, 233)',
-      borderRadius:'0px'
-
+      color:'rgb(130, 130, 233)',
+      boxShadow: '0 4px 0 rgb(130, 130, 233)',
+      borderRadius:'0px',
+      borderStyle: 'none'
     };
     
     return(
@@ -62,20 +69,20 @@ class Main extends Component {
           <nav className="navbar navbar-default">
             <div className= "container-fluid">
               <div  className="navbar-header">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" className="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar">
                   <span className="sr-only">Toggle navigation</span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
               </div>
-              <h4 className="navbar-right">
-                <CustomDropdown/>
-                <ServiceDropdown/>
-                 {`  Welcome to HiLib`}
-              </h4>
-              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav nav-tabs" id="myTab">
+              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-l">
+                <h4 className="navbar-left">
+                  {`Welcome to HiLib  `}
+                  <span style= {{marginLeft:'100px'}}></span>
+                  <ServiceDropdown/>
+                </h4>
+                <ul className="nav navbar-right navbar-nav nav-tabs" id="navbar">
                   <li><NavLink exact to = "/" activeStyle={selected} > Home</NavLink></li>
                   <li><NavLink exact to = "/signin" activeStyle={selected}> Sign In</NavLink></li>
                   <li><NavLink exact to = "/register" activeStyle={selected}>Register</NavLink></li>

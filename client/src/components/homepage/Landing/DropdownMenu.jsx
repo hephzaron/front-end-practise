@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SplitButton,
-  Dropdown,
-  MenuItem,
-  Glyphicon
-} from 'react-bootstrap';
+import classnames from 'classnames'
 
 const onSelectAlert =  (eventKey) => {
   alert(`Alert from menu item .\neventKey: ${eventKey}`);
@@ -17,14 +12,22 @@ const onSelectAlert =  (eventKey) => {
  */
 
 const ServiceDropdown = () => (
-    <SplitButton title="What we offer !" pullRight id="split-button-pull-right" >
-      <MenuItem header>Choose type</MenuItem>
-      <MenuItem eventKey={1} href="/audio-books" onSelect={onSelectAlert}>Get Audio Books</MenuItem>
-      <MenuItem eventKey={2} href="/online-books" onSelect={onSelectAlert}>Get Online Books</MenuItem>
-      <MenuItem divider/>
-      <MenuItem header>Visit a bookshop</MenuItem>
-      <MenuItem eventKey={3} href="/bookshops" onSelect={onSelectAlert}>Bookshops</MenuItem>
-    </SplitButton>
+  <div className = "btn-group dropdown">
+    <h5 className="dropdown-toggle"
+        aria-haspopup="true"
+        aria-expanded="false"
+        style ={{fontWeight:'bold'}}>
+        {`Our services`}<span className="caret"></span>
+    </h5>
+    <ul className="dropdown-menu dropdown-menu-triangle-b-d">
+      <li><a href="/signin">{`Read a book`}</a></li>
+      <li><a href="#">{`Get a book`}</a></li>
+      <li role = "seperator" className="divider"></li>
+      <li><a href="#">{`Visit a bookshop`}</a></li>
+      <li role = "seperator" className="divider"></li>
+      <li><a href="#">{`Contact us`}</a></li>
+    </ul>
+  </div>
 )
 
 export default ServiceDropdown;
