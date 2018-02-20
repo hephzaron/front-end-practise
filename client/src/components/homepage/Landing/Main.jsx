@@ -6,8 +6,6 @@ import {
   NavLink
 } from 'react-router-dom';
 import $ from 'jquery';
-import { findDOMNode } from 'react-dom'
-
 import PropTypes from 'prop-types';
 
 import Home from 'HomePage/Home';
@@ -17,7 +15,8 @@ import Signin from 'HomePage/Signin';
 import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
 import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
 import ServiceDropdown from './DropdownMenu';
-import  ModalContainer  from 'Components/Modal'
+import  ModalContainer  from 'Components/Modal';
+import logo from 'Public/images/logo.png'
 
 /**
  * @description Renders the Landing page on user visit to site
@@ -44,6 +43,14 @@ class Main extends Component {
 
 
   componentDidMount(){  
+    $(".dropdown-toggle").hover(()=>{
+        $(".dropdown-menu").show()
+    },(event)=>{
+      let target = $(event.target);
+      if(target.is(".dropdwown-menu")){
+        $(".dropdown-menu").hide()
+      }
+    })
     this.setState({isLoading:false})
   }
   render(){
@@ -70,23 +77,36 @@ class Main extends Component {
                 </button>
               </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-l">
-                <h4 className="navbar-left">
+              <div className="navbar-left">
+              {/**<div style={{
+                width:'50px', 
+                height:'50px',
+                margin:'0px',
+                float:'left',
+                overflow:'hidden'}}>
+                <img src={logo} width="130px" height="100px" />
+              </div>    **/}
+                <h4 style={{float:'right'}}>
                   {`Welcome to HiLib  `}
                   <span style= {{marginLeft:'100px'}}></span>
-                  <ServiceDropdown/>
                 </h4>
-                <ul className="nav navbar-right navbar-nav nav-tabs" id="navbar">
+              </div>
+                <ServiceDropdown/>
+                <ul className="nav navbar-right navbar-nav " id="navbar">
                   <li><NavLink exact to = "/" activeStyle={selected} > Home</NavLink></li>
                   <li><NavLink exact to = "/signin" activeStyle={selected}> Sign In</NavLink></li>
                   <li><NavLink exact to = "/register" activeStyle={selected}>Register</NavLink></li>
+                  <li><NavLink exact to = "/api-docs" activeStyle={selected}>API Docs</NavLink></li>
                 </ul>
               </div>
             </div>
           </nav>
           <Route exact path="/" component= {this.MyHomePage} />
+          <div className="route-container">
           <Route exact path="/signin" component= {Signin}/>
           <Route exact path="/register" component= {Register}/>
           <ModalContainer />
+          </div>
         </div>
       </Router>
     

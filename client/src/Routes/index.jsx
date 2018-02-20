@@ -9,7 +9,6 @@ import Register from 'HomePage/Register';
 import Signin from 'HomePage/Signin';
 import ChangePassword from 'HomePage/ChangePassword/ChangePasswordForm';
 import ResetPassword from 'HomePage/ResetPassword/ResetPasswordForm';
-import App from 'HomePage';
 import LandingPage from 'HomePage/Landing/Main'
 
 //const history = createHistory()

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'Forms/Button';
 import SingleInput from 'Forms/SingleInput';
+import FlashMessageList from 'Components/FlashMessageList';
 import {Link} from 'react-router-dom';
 
 /**
@@ -22,7 +23,8 @@ const propTypes = {
 
 const ResetPassword = (props) => (
     <form className = "form-user" onSubmit = {props.onSubmit}>
-      <h2 className="form-user-heading">Password reset</h2>
+      <FlashMessageList />
+      <p className="form-user-heading">Enter your email address and we will send you a link to reset your password.</p>
         <SingleInput
           identifier = "inputEmail"
           type = "email"
@@ -39,16 +41,14 @@ const ResetPassword = (props) => (
           }			
 
 		    <Button
-          name = "Send reset link"
+          name = "Send password reset email"
           disabled = {props.isLoading}
           className = "btn-success"
-          buttonStyle = {{float:'left',margin:'5px',backgroundColor:'#357EC7',borderColor:'#357EC7'}}/>	
-        <Link
-          to="/signin" 
-          className = "btn btn-lg btn-primary btn-inline"
-          style = {{float:'left',margin:'5px'}}>
-          Sign in
-        </Link> 				
+          buttonStyle = {{
+            float:'left',
+            backgroundColor:'#357EC7',
+            borderColor:'#357EC7',
+            width:'100%'}}/>					
     </form>
         )
  ResetPassword.propTypes = propTypes;

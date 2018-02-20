@@ -4,15 +4,20 @@ import PropTypes from 'prop-types';
 import modalTypes from './modalTypes';
 
 {/* import custom modal components*/}
-import PasswordResetModal from '../homepage/ResetPassword';
-import TermsOfServiceModal from '../homepage/Home/TermsofService';
-
-{/*import modal types*/}
-const { RESET_PASSWORD_MODAL, TERMS_OF_SERVICE_MODAL} = modalTypes
+import PasswordResetModal from 'HomePage/ResetPassword';
+import TermsOfServiceModal from 'HomePage/Statements/Terms';
+import MissionStatementModal from 'HomePage/Statements/Mission';
+import VisionStatementModal from 'HomePage/Statements/Vision';
+import PassionStatementModal from 'HomePage/Statements/Passion';
+import AboutUsModal from 'HomePage/Statements/About';
 
 const MODAL_COMPONENTS = {
   RESET_PASSWORD_MODAL: PasswordResetModal,
-  TERMS_OF_SERVICE_MODAL: TermsOfServiceModal
+  TERMS_OF_SERVICE_MODAL: TermsOfServiceModal,
+  MISSION_STATEMENT_MODAL: MissionStatementModal,
+  VISION_STATEMENT_MODAL: VisionStatementModal,
+  PASSION_STATEMENT_MODAL: PassionStatementModal,
+  ABOUT_US_MODAL: AboutUsModal
 }
 
 const contextTypes = {

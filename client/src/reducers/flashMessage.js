@@ -1,6 +1,6 @@
 import types from 'Actions/types';
 
-const { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } = types;
+const { ADD_FLASH_MESSAGE, REMOVE_FLASH_MESSAGE } = types;
 
 /**
  * @description This handles flash message reducers
@@ -16,7 +16,7 @@ const flashMessages = (state = {}, action) => {
                 type: action.message.type,
                 text: action.message.text
             };
-        case DELETE_FLASH_MESSAGE:
+        case REMOVE_FLASH_MESSAGE:
             return {};
         default:
             return state;

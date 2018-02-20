@@ -6,7 +6,7 @@ import { closeModal } from 'Actions/modal';
 import { sendResetPasswordMail as resetPasswordAction } from 'Actions/userAuth';
 import { addFlashMessage } from 'Actions/flashMessage';
 import validateUser from 'Utils/validators/user';
-import Modal from '../../Modal/Modal';
+import Modal from 'Modal/Modal';
 
 /**
  * @description Renders the Password reset modal
@@ -104,16 +104,6 @@ class PasswordResetModal extends Component {
     return isValid;
   };
   render(){
-    const overlayStyle = {
-      backgroundColor: ''
-    };
-    const contentStyle = {
-      backgroundColor: '#728FCE'
-    };
-    const dialogStyle = {
-      backgroundColor: '#CFECEC'
-    }
-    
     return(
       <Modal onClose={this.onClose}>
         <PasswordResetForm

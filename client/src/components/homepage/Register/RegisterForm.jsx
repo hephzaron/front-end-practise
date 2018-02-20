@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'Forms/Button';
 import Checkbox from 'Forms/Checkbox';
 import SingleInput from 'Forms/SingleInput';
-import FlashMessageList from '../../FlashMessageList/FlashMessage';
+import FlashMessageList from 'Components/FlashMessageList';
 
 /**
  * Register page component begins
@@ -17,6 +17,7 @@ import FlashMessageList from '../../FlashMessageList/FlashMessage';
 const propTypes = {
     onChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    displayTerms: PropTypes.func.isRequired,
     validationError: PropTypes.object.isRequired,
     isLoading: PropTypes.bool.isRequired,
     isChecked: PropTypes.bool.isRequired,
@@ -29,13 +30,10 @@ const propTypes = {
  * @param {null}
  * @return {string} returns the link to terms and condition of memebership
  */
-const Terms = () => (
-    <a  href="/terms-and-condition" style = {{float:'left'}}>terms and condition</a>
-  ) 
 
 const RegisterForm = (props) => (
-    <form onSubmit = {props.onSubmit}>
-        {/**<FlashMessageList />**/}
+    <form id = "signup-form" onSubmit = {props.onSubmit}>
+      <FlashMessageList />
         <SingleInput
           identifier = "inputUsername"
           placeholder = "Username"
@@ -100,7 +98,12 @@ const RegisterForm = (props) => (
           isChecked = {props.isChecked}
           toggleCheckbox = {props.toggleCheckbox}
           checkboxStyle = {{float:'left',marginRight:'10px'}}/>
-          {<Terms/>}
+        { <a  
+            onClick={props.displayTerms} 
+            style = {{float:'left'}}>
+            terms and condition
+          </a>
+        }
         <Button
           name = "Register"
           icon = {false}

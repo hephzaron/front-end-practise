@@ -36,8 +36,8 @@ const ServiceDropdown = () => (
     <h5 className="dropdown-toggle"
         aria-haspopup="true"
         aria-expanded="false"
-        style ={{fontWeight:'bold'}}>
-        {`Our Services`}<span className="caret"></span>
+        style ={{fontWeight:'bold', fontSize:'18px', color:'rgb(100, 78, 200)',}}>
+        {`Our services`}<span className="caret"></span>
     </h5>
     <CustomList
       identifier={'#services'}

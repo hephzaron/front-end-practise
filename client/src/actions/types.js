@@ -5,7 +5,7 @@ import mirrorKeys from 'Utils/mirrorKeys'
 
 const actions = [
     'ADD_FLASH_MESSAGE',
-    'DELETE_FLASH_MESSAGE',
+    'REMOVE_FLASH_MESSAGE',
     'SET_CURRENT_USER',
     'UNSET_CURRENT_USER',
     'GET_NOTIFICATIONS',

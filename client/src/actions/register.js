@@ -8,26 +8,26 @@ import { addFlashMessage } from './flashMessage';
  * @returns {promise} Axios http response
  */
 
-export const userSignupRequestAction = (userData) => {
-    (dispatch) => {
+export const userSignupRequestAction = (userData) => (
+    (dispatch) => (
         axios
-            .post('users/signup', userData)
-            .then((response) => {
+        .post('/users/signup', userData)
+        .then((response) => {
+            dispatch(addFlashMessage({
+                type: 'success',
+                text: response.data.message
+            }));
+            dispatch(loginUser(response.data.user));
+            return response
+        })
+        .catch((errors) => {
+            if (errors.response) {
                 dispatch(addFlashMessage({
-                    type: 'success',
-                    text: response.data.message
+                    type: 'error',
+                    text: errors.response.data.message
                 }));
-                dispatch(loginUser(response.data.user));
-                return response
-            })
-            .catch((errors) => {
-                if (errors.response) {
-                    dispatch(addFlashMessage({
-                        type: 'error',
-                        text: errors.response.data.message
-                    }));
-                }
-                return errors
-            })
-    }
-}
+            }
+            return errors
+        })
+    )
+)

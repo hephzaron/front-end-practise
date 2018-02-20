@@ -6,13 +6,17 @@ import validateUser from 'Utils/validators/user';
 import { addFlashMessage } from 'Actions/flashMessage';
 import { userSignupRequestAction } from 'Actions/register';
 import RegisterForm from './RegisterForm';
+import { loadModal, showModal, hideModal } from 'Actions/modal';
+import modalTypes from 'Modal/modalTypes';
+
+const { TERMS_OF_SERVICE_MODAL } = modalTypes;
 
 const contextTypes = {
   router: PropTypes.object.isRequired
 };
 
 const propTypes = {
-  //addFlashMessage: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired,
   userSignupRequest: PropTypes.func.isRequired
 };
 
@@ -43,6 +47,7 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
+    this.displayTerms = this.displayTerms.bind(this);
   };
 
   componentWillUnmount(){
@@ -83,7 +88,8 @@ class Register extends Component {
         if(data.response && data.response.status>=400){
           this.setState({isLoading:false})
         }else{
-          this.context.router.push('/user-profile')
+          document.getElementById('signup-form').reset();
+          this.context.router.push('/dashboard')
         }
       })
    };
@@ -97,6 +103,10 @@ class Register extends Component {
     this.setState({
       isChecked: !this.state.isChecked
     })
+  }
+
+  displayTerms(){
+    this.props.showModal(TERMS_OF_SERVICE_MODAL)
   }
 
   /**
@@ -123,7 +133,8 @@ class Register extends Component {
         onChange = {this.onChange}
         onSubmit = {this.onSubmit}
         isChecked = { this.state.isChecked}
-        toggleCheckbox = {this.toggleCheckbox}/>
+        toggleCheckbox = {this.toggleCheckbox}
+        displayTerms ={this.displayTerms}/>
     )
   }
 
@@ -142,11 +153,14 @@ Register.propTypes = propTypes;
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     userSignupRequest: userSignupRequestAction,
-    addFlashMessage
+    addFlashMessage,
+    showModal,
+    loadModal,
+    hideModal
 }, dispatch);
 
 export { Register };
 
-export default connect (mapDispatchToProps)(Register);
+export default connect (null, mapDispatchToProps)(Register);
 
 

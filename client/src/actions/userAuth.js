@@ -26,10 +26,10 @@ const logoutUser = () => (
 
 const loginUser = (userData) => (
     (dispatch) => {
-        const { token, userId } = userData;
-        const userPayload = userId;
-        localStorage.setItem('authToken', token);
-        localStorage.setItem('userPayload', JSON.stringify(userPayload));
+        const { token, ...rest } = userData;
+        const userPayload = {...rest }
+        localStorage.setItem('x-access-token', token);
+        localStorage.setItem('userPayload', userPayload);
         setAuthToken(token);
         dispatch(setCurrentUser(userPayload));
     }
@@ -41,24 +41,24 @@ const loginUser = (userData) => (
  * @returns {object} It returns axios success response object or error object on error
  */
 
-const signin = (payload) => (
-    (dispatch) => {
+const signin = (userData) => (
+    (dispatch) => (
         axios
-            .post('users/signin', payload)
-            .then((response) => {
-                dispatch(loginUser(response.data.user));
-                return response
-            })
-            .catch(
-                errors => {
-                    dispatch(addFlashMessage({
-                        type: 'error',
-                        text: errors.response.data.message
-                    }));
-                    return errors;
-                }
-            )
-    }
+        .post('/users/signin', userData)
+        .then((response) => {
+            dispatch(loginUser(response.data.user));
+            return response
+        })
+        .catch(
+            errors => {
+                dispatch(addFlashMessage({
+                    type: 'error',
+                    text: errors.response.data.message
+                }));
+                return errors;
+            }
+        )
+    )
 )
 
 /**
@@ -69,7 +69,7 @@ const signin = (payload) => (
 
 const sendResetPasswordMail = (payload) => (
     (dispatch) => axios
-    .post('users/reset-password', payload)
+    .post('/users/reset-password', payload)
     .then((response) => {
         dispatch(addFlashMessage({
             type: 'success',
@@ -91,22 +91,22 @@ const sendResetPasswordMail = (payload) => (
  */
 
 const resetPassword = (payload) => (
-    (dispatch) => {
-        axios
-            .post('users/reset-password/verify', payload)
-            .then((response) => {
-                dispatch(addFlashMessage({
-                    type: 'success',
-                    text: response.data.message
-                }));
-            })
-            .catch((errors) => {
-                dispatch(addFlashMessage({
-                    type: 'error',
-                    text: errors.response.data.message
-                }));
-            })
-    }
+    (dispatch) =>
+    axios
+    .post('/users/reset-password/verify', payload)
+    .then((response) => {
+        dispatch(addFlashMessage({
+            type: 'success',
+            text: response.data.message
+        }));
+    })
+    .catch((errors) => {
+        dispatch(addFlashMessage({
+            type: 'error',
+            text: errors.response.data.message
+        }));
+    })
+
 )
 
 export { setCurrentUser, logoutUser, loginUser, signin, sendResetPasswordMail, resetPassword };

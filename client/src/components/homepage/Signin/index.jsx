@@ -9,7 +9,7 @@ import validateUser from 'Utils/validators/user';
 import { addFlashMessage } from 'Actions/flashMessage';
 import SigninForm from './SigninForm';
 /**Modal type constant */
-import modalTypes from  '../../Modal/modalTypes'
+import modalTypes from  'Modal/modalTypes'
 const { RESET_PASSWORD_MODAL } = modalTypes;
 
 const contextTypes = {
@@ -174,11 +174,10 @@ SignIn.propTypes = propTypes;
  * @param {object} state - redux store state
  * @returns {object} map state to props 
  * */
-const mapStateToProps = (state) => {
-  return{
+const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
-  }
-};
+});
+
 
 
 /**

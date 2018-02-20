@@ -1,6 +1,6 @@
 import types from 'Actions/types';
 
-const { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } = types;
+const { ADD_FLASH_MESSAGE, REMOVE_FLASH_MESSAGE } = types;
 
 /**
  * @description creates action to add flash messages
@@ -13,8 +13,8 @@ const addFlashMessage = (message) => ({
     message
 })
 
-const deleteFlashMessage = () => ({
-    type: DELETE_FLASH_MESSAGE
+const removeFlashMessage = () => ({
+    type: REMOVE_FLASH_MESSAGE
 })
 
-export default { addFlashMessage, deleteFlashMessage };
+export default { addFlashMessage, removeFlashMessage };

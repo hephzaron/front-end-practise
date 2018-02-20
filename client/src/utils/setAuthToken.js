@@ -11,9 +11,9 @@ const setAuthToken = (AUTH_TOKEN) => {
 
     axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     if (AUTH_TOKEN) {
-        axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+        axios.defaults.headers.common['X-Access-Token'] = AUTH_TOKEN;
     } else {
-        delete axios.defaults.headers.common['Authorization'];
+        delete axios.defaults.headers.common['X-Access-Token'];
     }
 
 };

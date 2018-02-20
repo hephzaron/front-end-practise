@@ -10,7 +10,6 @@ import classnames from 'classnames';
 
 const Button = (props) =>{
     return(
-        <div>
             <button
                 className = {classnames(
                     `btn btn-lg btn-primary btn-inline ${props.className || ''}`
@@ -19,10 +18,14 @@ const Button = (props) =>{
                 disabled = {props.disabled}
                 onClick = {props.onClick}
                 style = {props.buttonStyle}>
-                {props.icon ? `${props.name} ${'>>'}`: props.name}
+                {props.name}
+                {props.icon?
+                    (<span>
+                        <span className="glyphicon glyphicon-chevron-right"></span>
+                        <span className="glyphicon glyphicon-chevron-right"></span>
+                    </span>):''}
             </button>
-    </div>
-)
+        )
 }
 
 Button.propTypes = {

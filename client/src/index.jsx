@@ -9,8 +9,9 @@ import addFlashMessage from 'Actions/flashMessage';
 import { setCurrentUser, logoutUser } from 'Actions/userAuth';
 import setAuthToken from 'Utils/setAuthToken';
 import  Routes  from 'Routes';
-import 'Public/css/bootstrap.min.css'
-import 'Public/css/user.css';
+import 'Public/css/bootstrap.min.css';
+{/**import 'font-awesome/css/font-awesome.css'**/};
+import 'Public/scss/home.scss';
 import Main from 'HomePage/Landing/Main'
 
 

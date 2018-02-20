@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'Public/css/modal.css'
 
 /**
  * @class Class to represent a modal component
@@ -86,6 +85,9 @@ class Modal extends Component {
           onClick = {this.handleOverlayClick}>
           <div className="modal-dialog-div" style={dialogStyle}
           onClick ={this.handleDialogClick}>
+              <span className="glyphicon glyphicon-remove" 
+                onClick = {this.handleOverlayClick}>
+              </span>
           {this.props.children}
           </div>
         </div>

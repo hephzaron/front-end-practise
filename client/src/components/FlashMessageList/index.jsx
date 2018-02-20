@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FlashMessage from './FlashMessage';
 import SetTimeout from '../../helpers/SetTimeout';
-import { deleteFlashMessage } from '../../actions/flashMessage.js';
+import { removeFlashMessage } from 'Actions/flashMessage';
 
 /**
  * @description Container component for flash message
@@ -20,7 +20,7 @@ class FlashMessageList extends Component {
    */
   
   componentWillUnmount(){
-    this.props.deleteFlashMessageAction
+    this.props.removeFlashMessageAction
   }
 
   /**
@@ -44,8 +44,8 @@ class FlashMessageList extends Component {
 }
 
 FlashMessageList.propTypes = {
-  message: PropTypes.object
-  deleteFlashMessageAction: PropTypes.func.isRequired
+  message: PropTypes.object,
+  removeFlashMessageAction: PropTypes.func.isRequired
 }
 
 /**
@@ -61,5 +61,5 @@ FlashMessageList.propTypes = {
  export { FlashMessageList };
  export default connect(
    mapStateToProps,
-   { deleteFlashMessageAction: deleteFlashMessage}
+   { removeFlashMessageAction: removeFlashMessage}
  )(FlashMessageList);

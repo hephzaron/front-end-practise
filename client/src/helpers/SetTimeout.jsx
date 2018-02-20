@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { setTimeout, clearTimeout } from 'timers';
 
 /**
  * @description Set timout component to togglle component visibility
@@ -17,7 +18,7 @@ class SetTimout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isVisible = true
+      isVisible: true
     };
   }
 
@@ -69,9 +70,8 @@ class SetTimout extends Component {
     if(this.timer != null){
       clearTimeout(this.timer)
     }
-
     // hide after duration elapse
-    this.timer = setTimout(()=>{
+    this.timer = setTimeout(()=>{
       this.setState({isVisible:false});
       this.timer = null;
     },this.props.interval);

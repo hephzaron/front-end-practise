@@ -33,7 +33,5 @@ FlashMesssage.propTypes = {
   message: PropTypes.object
 }
 
-FlashMesssage.defaultProps = {
-}
 
 export default FlashMesssage;

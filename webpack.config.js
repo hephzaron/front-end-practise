@@ -5,9 +5,15 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 require('dotenv').config()
 
-const ENV = process.env.APP_ENV;
-const isDevelopment = ENV === 'development';
-const isProduction = ENV === 'production';
+const {
+    APP_ENV,
+    HOST,
+    PORT,
+    ROOT_URL,
+    API_KEY
+} = process.env
+const isDevelopment = APP_ENV === 'development';
+const isProduction = APP_ENV === 'production';
 
 const setDevTool = () => {
     if (isDevelopment) {
@@ -18,6 +24,15 @@ const setDevTool = () => {
         return 'inline-source-map'
     }
 }
+const setPublicPath = () => {
+    let publicPath
+    if (isDevelopment) {
+        publicPath = `http://localhost:${PORT}/`
+    } else if (isProduction) {
+        publicPath = `${ROOT_URL}`
+    }
+    return publicPath;
+}
 
 module.exports = {
     entry: [
@@ -26,31 +41,69 @@ module.exports = {
     output: {
         path: __dirname + "/client/dist",
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: setPublicPath()
     },
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader',
-                exclude: [
-                    /node_modules/
-                ]
+                exclude: /node_modules/
             },
             {
-                test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf|svg)$/,
-                use: 'file-loader',
-                exclude: [
-                    /node_modules/
-                ]
+                test: /\.(jpg|jpeg|gif|png)?$/,
+                loader: 'url-loader',
+                exclude: /node_modules/,
+                options: {
+                    name: 'images/[name].[ext]'
+                }
             },
             {
-                test: /\.css$/,
+                test: /\.(eot|ttf|otf|svg)(\?.*$|$)?$/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'file-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(css)$/,
                 exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: {
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
+                    }
                 }),
             },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: 'style-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }]
+            }, {
+                test: /\.html$/,
+                use: ['html-loader']
+            }
         ]
     },
     plugins: [
@@ -60,7 +113,7 @@ module.exports = {
         }),
         new ExtractTextPlugin('style.css'),
         new webpack.DefinePlugin({
-            API_KEY: JSON.stringify(process.env.API_KEY)
+            API_KEY: JSON.stringify(API_KEY)
         }),
         new webpack.HotModuleReplacementPlugin()
 
@@ -76,16 +129,18 @@ module.exports = {
             Components: path.resolve(__dirname, './client/src/components'),
             HomePage: path.resolve(__dirname, './client/src/components/homepage'),
             Forms: path.resolve(__dirname, './client/src/components/forms'),
-            General: path.resolve(__dirname, './client/src/components/general')
+            General: path.resolve(__dirname, './client/src/components/general'),
+            Modal: path.resolve(__dirname, './client/src/components/Modal')
         }
     },
     devServer: {
         historyApiFallback: true,
         hot: true,
+        compress: true,
         inline: true,
-        host: '127.0.0.1',
+        host: HOST,
         contentBase: '/client/public',
-        port: 3000
+        port: PORT
     },
     devtool: setDevTool()
 }
