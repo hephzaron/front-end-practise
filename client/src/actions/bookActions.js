@@ -1,3 +1,8 @@
-import types from 'Action/types';
+import types from './types';
 
-const {} = types;
+const {
+    SET_BOOKS,
+    ADD_BOOK,
+    DELETE_BOOK,
+    BOOK_FETCHED
+} = types;
