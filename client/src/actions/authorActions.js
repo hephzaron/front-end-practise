@@ -13,14 +13,14 @@ const {
 
 /**
  * Set authors
- * @description  Sets fetched author(s) to the store
+ * @description  Sets fetched authors to the store
  * @param {array} authors - Payload of fetched authors
  * @returns {object} action creator
  */
 
 const setAuthors = (authors) => ({
     type: SET_AUTHORS,
-    authors
+    ...authors
 });
 
 /**
@@ -82,13 +82,13 @@ const authorDeleted = (id) => ({
 });
 
 /**
- * Set authors
+ * Get authors
  * @description Gets authors from server
  * @param {void} null - no parameter
  * @returns {promise} Axios http response
  */
 
-const setAuthors = () => (
+const getAuthors = () => (
     dispatch => (
         axios.get('/authors/books')
         .then(response => {
@@ -260,7 +260,7 @@ export default {
     authorEdited,
     authorAssigned,
     authorDeleted,
-    setAuthors,
+    getAuthors,
     fetchAuthor,
     createAuthor,
     editAuthor,

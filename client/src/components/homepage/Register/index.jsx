@@ -124,6 +124,10 @@ class Register extends Component {
     return isValid;
   };
 
+  uploadFile(){
+
+  }
+
   render(){
     return(
       <RegisterForm
@@ -134,7 +138,8 @@ class Register extends Component {
         onSubmit = {this.onSubmit}
         isChecked = { this.state.isChecked}
         toggleCheckbox = {this.toggleCheckbox}
-        displayTerms ={this.displayTerms}/>
+        displayTerms ={this.displayTerms}
+        uploadFile ={this.uploadFile}/>
     )
   }
 

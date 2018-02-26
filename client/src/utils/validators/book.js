@@ -23,7 +23,7 @@ export default (inputs) {
         errors.title = 'Please specify book title'
     }
     if (Validator.isEmpty(description)) {
-        errors.description = 'Give a brief description book here'
+        errors.description = 'Give a brief description of book here'
     }
     if (Number.isNaN(parseInt(genreId, 10))) {
         errors.genreId = 'Please select a book category'

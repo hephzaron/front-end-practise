@@ -20,8 +20,9 @@ const BookList = (props) => (
         <span className= "badge">{bookRequest}</span>
         { const { Authors } = book;
           Array.isArray(Authors)&& Authors.length>=1 ?
+          <br/>
           <p>
-            { Authors.reduce((previous, next) => 
+            { Authors.reduce((previous, next) =>
               `${previous.fullName}, ${next.fullName}`)}
           </p>: null }
       </li>

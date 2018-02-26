@@ -2,7 +2,7 @@ import Validator from 'validator';
 import { isEmpty } from 'lodash';
 
 /**
- * @class defaultClass
+ * @function defaultFunction
  * @description Validate inputs for user credentials
  * @param {object} inputs 
  * @param{string} type

@@ -82,6 +82,7 @@ const createGenre = (genreDetails) => (
                 type: 'error'
                 text: errors.response.data.message
             }));
+            return errors;
         })
     )
 )
